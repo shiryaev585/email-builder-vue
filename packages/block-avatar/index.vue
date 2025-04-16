@@ -1,0 +1,99 @@
+<template>
+  <div :style="sectionStyle">
+    <img
+      :alt="alt"
+      :src="imageUrl"
+      :height="size"
+      :width="size"
+      :style="{
+        outline: 'none',
+        border: 'none',
+        textDecoration: 'none',
+        objectFit: 'cover',
+        height: size,
+        width: size,
+        maxWidth: '100%',
+        display: 'inline-block',
+        verticalAlign: 'middle',
+        textAlign: 'center',
+        borderRadius: getBorderRadius(shape, size),
+      }"
+    >
+  </div>
+</template>
+
+<script lang="ts">
+import { PADDING_SCHEMA, getPadding } from '@flyhub-dev/core';
+import { z } from 'zod';
+import { computed } from 'vue';
+
+export const AvatarPropsSchema = z.object({
+  style: z
+  .object({
+    textAlign: z.enum(['left', 'center', 'right']).optional().nullable(),
+    padding: PADDING_SCHEMA,
+  })
+  .optional()
+  .nullable(),
+  props: z
+  .object({
+    size: z.number().gt(0).optional().nullable(),
+    shape: z.enum(['circle', 'square', 'rounded']).optional().nullable(),
+    imageUrl: z.string().optional().nullable(),
+    alt: z.string().optional().nullable(),
+  })
+  .optional()
+  .nullable(),
+});
+
+export const AvatarPropsDefaults = {
+  size: 64,
+  imageUrl: '',
+  alt: '',
+  shape: 'square',
+} as const;
+
+export type AvatarProps = {
+  style?: {
+    textAlign?: 'left' | 'center' | 'right' | null,
+    padding?: {
+      left: number,
+      right: number,
+      top: number,
+      bottom: number,
+    } | null,
+  } | null,
+  props?: {
+    size?: number | null,
+    shape?: 'circle' | 'square' | 'rounded' | null,
+    imageUrl?: string | null,
+    alt?: string | null,
+  } | null,
+}
+</script>
+
+<script setup lang="ts">
+function getBorderRadius(shape: 'circle' | 'square' | 'rounded', size: number): number | undefined {
+  switch (shape) {
+    case 'rounded':
+      return size * 0.125;
+    case 'circle':
+      return size;
+    case 'square':
+    default:
+      return undefined;
+  }
+}
+
+const props = defineProps<AvatarProps>()
+
+const size = computed(() => props.props?.size ?? AvatarPropsDefaults.size)
+const imageUrl = computed(() => props.props?.imageUrl ?? AvatarPropsDefaults.imageUrl)
+const alt = computed(() => props.props?.alt ?? AvatarPropsDefaults.alt)
+const shape = computed(() => props.props?.shape ?? AvatarPropsDefaults.shape)
+
+const sectionStyle = computed(() => ({
+  textAlign: props.style?.textAlign ?? undefined,
+  padding: getPadding(props.style?.padding),
+}))
+</script>
