@@ -1,23 +1,26 @@
 <template>
   <BaseSidebarPanel title="Html block">
     <UFormField label="Content">
-      <UInput
+      <UTextarea
+        :rows="5"
         :model-value="data.props?.contents ?? ''"
         @update:model-value="handleUpdateData({ ...data, props: { ...data.props, contents: $event as string } })"
+        class="w-full"
       />
-      <MultiStylePropertyPanel
-        :names="['color', 'backgroundColor', 'fontFamily', 'fontWeight', 'textAlign', 'padding']"
-        :model-value="data.style"
-        @update:model-value="handleUpdateData({ ...data, style: $event })"
-      />
-  </uformfield></BaseSidebarPanel>
+    </UFormField>
+    <MultiStylePropertyPanel
+      :names="['color', 'backgroundColor', 'fontFamily', 'fontSize', 'textAlign', 'padding']"
+      :model-value="data.style"
+      @update:model-value="handleUpdateData({ ...data, style: $event })"
+    />
+  </BaseSidebarPanel>
 </template>
 
 <script setup lang="ts">
 import BaseSidebarPanel from './helpers/BaseSidebarPanel.vue';
 import MultiStylePropertyPanel from './helpers/style-inputs/MultiStylePropertyPanel.vue';
-import type { HtmlProps} from '@flyhub-dev/block-html/index.vue';
-import { HtmlPropsSchema } from '@flyhub-dev/block-html/index.vue';
+import type { HtmlProps} from '@flyhub-dev/block-html';
+import { HtmlPropsSchema } from '@flyhub-dev/block-html';
 import { ref } from 'vue';
 
 type HtmlSidebarPanelProps = {

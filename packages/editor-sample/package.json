@@ -30,6 +30,8 @@
     "@nuxt/ui": "^3.0.2",
     "@tailwindcss/vite": "^4.1.4",
     "@vitejs/plugin-vue-jsx": "^4.1.2",
+    "highlight.js": "^11.11.1",
+    "prettier": "^3.5.3",
     "tailwindcss": "^4.1.4",
     "zod": "^3.24.2"
   }

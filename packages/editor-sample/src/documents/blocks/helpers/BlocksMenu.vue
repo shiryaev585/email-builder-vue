@@ -1,15 +1,18 @@
 <template>
-  <UDropdownMenu v-model:open="open" arrow :items="BUTTONS">
+  <UPopover v-model:open="open" arrow>
     <slot />
 
-    <template #item="{ item }">
-      <BlockButton
-        :label="item.label"
-        :icon="item.icon"
-        @click="handleClick(item)"
-      />
+    <template #content>
+      <div class="grid grid-cols-4 p-2">
+        <BlockButton
+          v-for="item in BUTTONS"
+          :label="item.label"
+          :icon="item.icon"
+          @click="handleClick(item)"
+        />
+      </div>
     </template>
-  </UDropdownMenu>
+  </UPopover>
 </template>
 
 <script setup lang="ts">

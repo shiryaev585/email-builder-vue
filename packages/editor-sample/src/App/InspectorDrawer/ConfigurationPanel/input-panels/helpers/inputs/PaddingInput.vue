@@ -3,7 +3,7 @@
     <UFormField :label="label" />
 
     <RawSliderInput
-      icon-label="material-symbols:vertical-align-top"
+      icon-label="material-symbols:align-vertical-top"
       :model-value="value.top"
       units="px"
       :step="4"
@@ -14,7 +14,7 @@
     />
 
     <RawSliderInput
-      icon-label="material-symbols:vertical-align-bottom"
+      icon-label="material-symbols:align-vertical-bottom"
       :model-value="value.bottom"
       units="px"
       :step="4"

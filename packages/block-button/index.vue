@@ -102,7 +102,7 @@ const wrapperStyle = computed(() => ({
 
 const linkStyle = computed<CSSProperties>(() => ({
   color: buttonTextColor.value,
-  fontSize: props.style?.fontSize ?? 16,
+  fontSize: (props.style?.fontSize ?? 16) + 'px',
   // FIXME: type
   fontFamily: getFontFamily(props.style?.fontFamily),
   fontWeight: props.style?.fontWeight ?? 'bold',
@@ -120,10 +120,10 @@ function getRoundedCorners(props: ButtonProps['props']) {
     case 'rectangle':
       return undefined;
     case 'pill':
-      return 64;
+      return 64 + 'px';
     case 'rounded':
     default:
-      return 4;
+      return 4 + 'px';
   }
 }
 

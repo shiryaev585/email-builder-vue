@@ -1,7 +1,7 @@
 <template>
-  <div v-if="props.props?.contents" :style="cssStyle" />
+  <div v-if="!props.props?.contents" :style="cssStyle" />
   <!-- eslint-disable-next-line vue/no-v-html -->
-  <slot v-else v-html="props.props.contents" />
+  <div v-else v-html="props.props.contents" :style="cssStyle" class="revert-browser-styles" />
 </template>
 
 <script lang="ts">
@@ -12,22 +12,22 @@ import { computed } from 'vue';
 
 export const HtmlPropsSchema = z.object({
   style: z
-    .object({
-      color: COLOR_SCHEMA,
-      backgroundColor: COLOR_SCHEMA,
-      fontFamily: FONT_FAMILY_SCHEMA,
-      fontSize: z.number().min(0).optional().nullable(),
-      textAlign: z.enum(['left', 'right', 'center']).optional().nullable(),
-      padding: PADDING_SCHEMA,
-    })
-    .optional()
-    .nullable(),
+  .object({
+    color: COLOR_SCHEMA,
+    backgroundColor: COLOR_SCHEMA,
+    fontFamily: FONT_FAMILY_SCHEMA,
+    fontSize: z.number().min(0).optional().nullable(),
+    textAlign: z.enum(['left', 'right', 'center']).optional().nullable(),
+    padding: PADDING_SCHEMA,
+  })
+  .optional()
+  .nullable(),
   props: z
-    .object({
-      contents: z.string().optional().nullable(),
-    })
-    .optional()
-    .nullable(),
+  .object({
+    contents: z.string().optional().nullable(),
+  })
+  .optional()
+  .nullable(),
 });
 
 export type HtmlProps = {
@@ -53,13 +53,19 @@ export type HtmlProps = {
 <script setup lang="ts">
 const props = defineProps<HtmlProps>()
 
-const cssStyle = computed(() => ({
-color: props.style?.color ?? undefined,
-backgroundColor: props.style?.backgroundColor ?? undefined,
-fontFamily: getFontFamily(props.style?.fontFamily),
-fontSize: props.style?.fontSize ?? undefined,
-textAlign: props.style?.textAlign ?? undefined,
-padding: getPadding(props.style?.padding),
-}))
+const cssStyle = computed(() => {
+  const result = {
+    color: props.style?.color ?? undefined,
+    backgroundColor: props.style?.backgroundColor ?? undefined,
+    fontFamily: getFontFamily(props.style?.fontFamily),
+    fontSize: props.style?.fontSize ?? undefined,
+    textAlign: props.style?.textAlign ?? undefined,
+    padding: getPadding(props.style?.padding),
+  }
+
+  result.fontSize = typeof result.fontSize === 'number' ? `${result.fontSize}px` : result.fontSize;
+
+  return result
+})
 
 </script>

@@ -3,8 +3,10 @@
 </template>
 
 <script setup lang="ts">
+import HighlightedCodePanel from './helper/HighlightedCodePanel.vue'
 import { renderToStaticMarkup } from '@usewaypoint/email-builder'
 import { useInspectorDrawer } from '../../documents/editor/editor.store'
+import { computed } from 'vue'
 
 const inspectorDrawer = useInspectorDrawer()
 

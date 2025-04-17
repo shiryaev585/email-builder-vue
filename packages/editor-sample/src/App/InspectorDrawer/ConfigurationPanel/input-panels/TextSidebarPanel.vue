@@ -1,9 +1,11 @@
 <template>
   <BaseSidebarPanel title="Text block">
     <UFormField label="Text">
-      <UInput
+      <UTextarea
+        :rows="5"
         :model-value="data.props?.text ?? ''"
         @update:model-value="handleUpdateData({ ...data, props: { ...data.props, text: $event as string } })"
+        class="w-full"
       />
     </UFormField>
 

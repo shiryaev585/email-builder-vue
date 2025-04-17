@@ -1,6 +1,6 @@
 <template>
   <!-- eslint-disable-next-line vue/no-v-html -->
-  <div v-bind="rest" v-html="data" />
+  <div v-bind="rest" v-html="data" class="revert-browser-styles" />
 </template>
 
 <script setup lang="ts">
