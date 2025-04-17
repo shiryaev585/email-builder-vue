@@ -63,7 +63,7 @@ const props = defineProps<TextProps>()
 const style = computed(() => ({
   color: props.style?.color ?? undefined,
   backgroundColor: props.style?.backgroundColor ?? undefined,
-  fontSize: props.style?.fontSize ?? undefined,
+  fontSize: props.style?.fontSize ? props.style?.fontSize + 'px' : undefined,
   // FIXME: type
   fontFamily: getFontFamily(props.style?.fontFamily),
   fontWeight: props.style?.fontWeight ?? undefined,

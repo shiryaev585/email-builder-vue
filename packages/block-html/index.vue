@@ -53,19 +53,13 @@ export type HtmlProps = {
 <script setup lang="ts">
 const props = defineProps<HtmlProps>()
 
-const cssStyle = computed(() => {
-  const result = {
-    color: props.style?.color ?? undefined,
-    backgroundColor: props.style?.backgroundColor ?? undefined,
-    fontFamily: getFontFamily(props.style?.fontFamily),
-    fontSize: props.style?.fontSize ?? undefined,
-    textAlign: props.style?.textAlign ?? undefined,
-    padding: getPadding(props.style?.padding),
-  }
-
-  result.fontSize = typeof result.fontSize === 'number' ? `${result.fontSize}px` : result.fontSize;
-
-  return result
-})
+const cssStyle = computed(() => ({
+  color: props.style?.color ?? undefined,
+  backgroundColor: props.style?.backgroundColor ?? undefined,
+  fontFamily: getFontFamily(props.style?.fontFamily),
+  fontSize: props.style?.fontSize ? props.style?.fontSize + 'px' : undefined,
+  textAlign: props.style?.textAlign ?? undefined,
+  padding: getPadding(props.style?.padding),
+}))
 
 </script>
