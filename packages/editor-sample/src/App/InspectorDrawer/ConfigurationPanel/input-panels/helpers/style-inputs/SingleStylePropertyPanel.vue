@@ -6,7 +6,6 @@
     icon-label="material-symbols:rounded-corner"
     label="Border radius"
     :default-value="defaultValue"
-    marks
     :step="4"
     :min="0"
     :max="48"

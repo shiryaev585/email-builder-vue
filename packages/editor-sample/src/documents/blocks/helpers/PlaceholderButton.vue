@@ -4,9 +4,9 @@
       display: 'flex',
       alignContent: 'center',
       justifyContent: 'center',
-      height: 48,
+      height: '48px',
       width: '100%',
-      backgroundColor: 'rgba(0,0,0, 0.08)',
+      backgroundColor: 'rgba(0, 0, 0, 0.08)',
       borderRadius: 0,
       cursor: 'pointer',
     }"

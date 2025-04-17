@@ -16,7 +16,7 @@
     />
 
     <MultiStylePropertyPanel
-      :names="['color', 'backgroundColor', 'fontFamily', 'fontWeight', 'textAlign', 'padding']"
+      :names="['color', 'backgroundColor', 'fontFamily', 'fontSize', 'fontWeight', 'textAlign', 'padding']"
       :model-value="data.style"
       @update:model-value="handleUpdateData({ ...data, style: $event })"
     />
@@ -27,8 +27,8 @@
 import BaseSidebarPanel from './helpers/BaseSidebarPanel.vue';
 import MultiStylePropertyPanel from './helpers/style-inputs/MultiStylePropertyPanel.vue';
 import BooleanInput from './helpers/inputs/BooleanInput.vue';
-import type { TextProps } from '@flyhub-dev/block-text/index.vue';
-import { TextPropsSchema } from '@flyhub-dev/block-text/index.vue';
+import type { TextProps } from '@flyhub-dev/block-text';
+import { TextPropsSchema } from '@flyhub-dev/block-text';
 import { ref } from 'vue';
 
 type TextSidebarPanelProps = {

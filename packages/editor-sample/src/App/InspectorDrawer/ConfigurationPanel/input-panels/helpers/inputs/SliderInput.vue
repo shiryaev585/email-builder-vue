@@ -17,7 +17,6 @@ type Props = {
   iconLabel: string,
 
   step?: number,
-  marks?: boolean,
   units?: string,
   min?: number,
   max?: number,

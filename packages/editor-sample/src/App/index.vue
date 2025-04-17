@@ -10,7 +10,7 @@ const inspectorDrawer = useInspectorDrawer()
   <EditorInspectorDrawer />
 
   <div
-    class="transition-[margin-right] duration-300"
+    class="transition-[margin-right] duration-300 h-full"
     :style="{
       marginRight: inspectorDrawer.inspectorDrawerOpen ? `${inspectorDrawer.INSPECTOR_DRAWER_WIDTH}px` : `0`,
     }">

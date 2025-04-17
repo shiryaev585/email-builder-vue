@@ -9,7 +9,6 @@
       :step="4"
       :min="0"
       :max="80"
-      marks
       @update:model-value="handleChange('top', $event)"
     />
 
@@ -20,7 +19,6 @@
       :step="4"
       :min="0"
       :max="80"
-      marks
       @update:model-value="handleChange('bottom', $event)"
     />
 
@@ -31,7 +29,6 @@
       :step="4"
       :min="0"
       :max="80"
-      marks
       @update:model-value="handleChange('left', $event)"
     />
 
@@ -42,7 +39,6 @@
       :step="4"
       :min="0"
       :max="80"
-      marks
       @update:model-value="handleChange('right', $event)"
     />
   </div>

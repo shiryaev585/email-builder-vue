@@ -1,25 +1,23 @@
 <template>
-  <div>
-    <UTabs :items="tabs" variant="link">
-      <template #editor>
-        <!-- FIXME: copy style mobile from original -->
-        <div :style="mainBoxStyle">
-          <EditorBlock id="root" />
-        </div>
-      </template>
-      <template #preview>
-        <!-- <div :style="mainBoxStyle"> -->
-        <!--   <Reader :document="document" root-block-id="root" /> -->
-        <!-- </div> -->
-      </template>
-      <template #html>
-        <!-- <HtmlPanel /> -->
-      </template>
-      <template #json>
-        <!-- <JsonPanel /> -->
-      </template>
-    </UTabs>
-  </div>
+  <UTabs :items="tabs" variant="link" class="h-full" :ui="{ content: 'h-full' }">
+    <template #editor>
+      <!-- FIXME: copy style mobile from original -->
+      <div :style="mainBoxStyle">
+        <EditorBlock id="root" />
+      </div>
+    </template>
+    <template #preview>
+      <!-- <div :style="mainBoxStyle"> -->
+      <!--   <Reader :document="document" root-block-id="root" /> -->
+      <!-- </div> -->
+    </template>
+    <template #html>
+      <!-- <HtmlPanel /> -->
+    </template>
+    <template #json>
+      <!-- <JsonPanel /> -->
+    </template>
+  </UTabs>
 </template>
 
 <script setup lang="ts">

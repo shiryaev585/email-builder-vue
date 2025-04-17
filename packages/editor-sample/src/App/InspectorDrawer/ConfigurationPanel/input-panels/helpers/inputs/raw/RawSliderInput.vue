@@ -18,7 +18,6 @@ type SliderInputProps = {
   iconLabel: string,
 
   step?: number,
-  marks?: boolean,
   units?: string,
   min?: number,
   max?: number,
