@@ -8,7 +8,7 @@
           :icon="item.icon"
           :label="item.label"
           :color="item.value === modelValue ? 'primary' : 'neutral'"
-          class="flex-1 justify-center"
+          class="flex-1 justify-center border-x"
           @click="$emit('update:model-value', item.value)"
         />
       </UButtonGroup>

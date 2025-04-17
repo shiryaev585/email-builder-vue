@@ -8,6 +8,7 @@
           const url = event.length === 0 ? null : event;
           handleUpdateData({ ...data, props: { ...data.props, url } })
         }"
+        class="w-full"
       />
     </UFormField>
 
@@ -15,6 +16,7 @@
       <UInput
         :model-value="data.props?.alt ?? ''"
         @update:model-value="handleUpdateData({ ...data, props: { ...data.props, alt: $event as string } })"
+        class="w-full"
       />
     </UFormField>
 
@@ -26,6 +28,7 @@
           const linkHref = event.length === 0 ? null : event;
           handleUpdateData({ ...data, props: { ...data.props, linkHref } })
         }"
+        class="w-full"
       />
     </UFormField>
 

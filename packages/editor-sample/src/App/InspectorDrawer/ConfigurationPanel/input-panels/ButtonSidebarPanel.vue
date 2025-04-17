@@ -9,7 +9,7 @@
     <RadioGroupInput
       label="Width"
       :model-value="fullWidth ? 'FULL_WIDTH' : 'AUTO'"
-      :items="[{ label: 'Auto', value: 'AUTO' }, { label: 'Full width', value: 'FULL_WIDTH' }]"
+      :items="[{ label: 'Full', value: 'FULL_WIDTH' }, { label: 'Auto', value: 'AUTO' }]"
       @update:model-value="handleUpdateData({ ...data, props: { ...data.props, fullWidth: $event === 'FULL_WIDTH' } })"
     />
     <RadioGroupInput
@@ -21,7 +21,7 @@
     <RadioGroupInput
       label="Style"
       :model-value="buttonStyle"
-      :items="[{ label: 'Rectangle', value: 'rectangle' }, { label: 'Pill', value: 'pill' }, { label: 'Rounded', value: 'rounded' }]"
+      :items="[{ label: 'Rectangle', value: 'rectangle' }, { label: 'Rounded', value: 'rounded' }, { label: 'Pill', value: 'pill' }]"
       @update:model-value="handleUpdateData({ ...data, props: { ...data.props, buttonStyle: $event } })"
     />
     <ColorInput
