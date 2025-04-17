@@ -1,6 +1,6 @@
 <template>
   <UAlert v-if="!block" type="warning" title="Block not found" />
-  <div v-else>
+  <div v-else class="h-full">
     <BuildBlockComponent :blocks="EDITOR_DICTIONARY" v-bind="block"  />
   </div>
 </template>
