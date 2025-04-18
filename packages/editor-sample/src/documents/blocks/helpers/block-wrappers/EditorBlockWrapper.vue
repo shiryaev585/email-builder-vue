@@ -46,4 +46,8 @@ const outline = computed(() => {
 function handleClick() {
   inspectorDrawer.setSelectedBlockId(currentBlockId)
 }
+
+defineOptions({
+  inheritAttrs: false,
+})
 </script>

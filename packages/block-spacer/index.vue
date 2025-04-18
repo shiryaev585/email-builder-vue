@@ -30,6 +30,6 @@ export const SpacerPropsDefaults = {
 const props = defineProps<SpacerProps>()
 
 const style = computed(() => ({
-  height: props.props?.height ?? SpacerPropsDefaults.height,
+  height: (props.props?.height ?? SpacerPropsDefaults.height) + 'px',
 }))
 </script>

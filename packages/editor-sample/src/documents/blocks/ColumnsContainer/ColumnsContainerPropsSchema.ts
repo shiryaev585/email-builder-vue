@@ -24,6 +24,6 @@ type TColumn = { childrenIds: string[] };
 export type ColumnsContainerProps = BaseColumnsContainerProps & {
   props?: BaseColumnsContainerProps['props'] & {
     columns: TColumn[];
-  }
+  } | null;
 }
 export default ColumnsContainerPropsSchema;

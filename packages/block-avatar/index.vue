@@ -76,7 +76,7 @@ export type AvatarProps = {
 function getBorderRadius(shape: 'circle' | 'square' | 'rounded', size: number): number | undefined {
   switch (shape) {
     case 'rounded':
-      return size * 0.125;
+      return (size * 0.125) + 'px';
     case 'circle':
       return size;
     case 'square':
@@ -87,7 +87,7 @@ function getBorderRadius(shape: 'circle' | 'square' | 'rounded', size: number): 
 
 const props = defineProps<AvatarProps>()
 
-const size = computed(() => props.props?.size ?? AvatarPropsDefaults.size)
+const size = computed(() => (props.props?.size ?? AvatarPropsDefaults.size) + 'px')
 const imageUrl = computed(() => props.props?.imageUrl ?? AvatarPropsDefaults.imageUrl)
 const alt = computed(() => props.props?.alt ?? AvatarPropsDefaults.alt)
 const shape = computed(() => props.props?.shape ?? AvatarPropsDefaults.shape)

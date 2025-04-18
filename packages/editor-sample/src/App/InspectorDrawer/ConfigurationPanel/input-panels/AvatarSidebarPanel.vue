@@ -4,9 +4,9 @@
       label="Size"
       icon-label="material-symbols:aspect-ratio"
       units="px"
-      step="3"
-      min="32"
-      max="256"
+      :step="3"
+      :min="32"
+      :max="256"
       :default-value="size"
       @change="handleUpdateData({ ...data, props: { ...data.props, size: $event } })"
     />
@@ -17,10 +17,18 @@
       @update:model-value="handleUpdateData({ ...data, props: { ...data.props, shape: $event } })"
     />
     <UFormField label="Image URL">
-      <UInput :model-value="imageUrl" @update:model-value="handleUpdateData({ ...data, props: { ...data.props, imageUrl: $event as string } })" />
+      <UInput
+        :model-value="imageUrl"
+        @update:model-value="handleUpdateData({ ...data, props: { ...data.props, imageUrl: $event as string } })"
+        class="w-full"
+      />
     </UFormField>
     <UFormField label="Alt text">
-      <UInput :model-value="alt" @update:model-value="handleUpdateData({ ...data, props: { ...data.props, alt: $event as string } })" />
+      <UInput
+        :model-value="alt"
+        @update:model-value="handleUpdateData({ ...data, props: { ...data.props, alt: $event as string } })"
+        class="w-full"
+      />
     </UFormField>
     <MultiStylePropertyPanel
       :names="['textAlign', 'padding']"
@@ -31,11 +39,13 @@
 </template>
 
 <script setup lang="ts">
+import SliderInput from './helpers/inputs/SliderInput.vue';
 import BaseSidebarPanel from './helpers/BaseSidebarPanel.vue';
 import MultiStylePropertyPanel from './helpers/style-inputs/MultiStylePropertyPanel.vue';
 import RadioGroupInput from './helpers/inputs/RadioGroupInput.vue';
 import type { AvatarProps} from '@flyhub-dev/block-avatar/index.vue';
 import { AvatarPropsDefaults, AvatarPropsSchema } from '@flyhub-dev/block-avatar/index.vue';
+import { ref, computed } from 'vue';
 
 type AvatarSidebarPanelProps = {
   data: AvatarProps;

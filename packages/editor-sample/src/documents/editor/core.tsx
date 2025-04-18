@@ -9,10 +9,11 @@ import Avatar, { AvatarPropsSchema } from '@flyhub-dev/block-avatar';
 import Divider, { DividerPropsSchema } from '@flyhub-dev/block-divider';
 import Spacer, { SpacerPropsSchema } from '@flyhub-dev/block-spacer';
 import Html, { HtmlPropsSchema } from '@flyhub-dev/block-html';
-import ContainerEditor, { ContainerPropsSchema } from '@flyhub-dev/block-container';
 
 import ColumnsContainerEditor from '../blocks/ColumnsContainer/ColumnsContainerEditor.vue'
 import ColumnsContainerPropsSchema from '../blocks/ColumnsContainer/ColumnsContainerPropsSchema'
+import ContainerEditor from '../blocks/Container/ContainerEditor.vue'
+import ContainerPropsSchema from '../blocks/Container/ContainerPropsSchema'
 
 import { buildBlockConfigurationDictionary, buildBlockConfigurationSchema } from '@flyhub-dev/document-core/builders';
 import type { z } from 'zod';

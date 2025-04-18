@@ -42,7 +42,7 @@ const props = defineProps<ContainerProps>()
 const wStyle = computed(() => ({
   backgroundColor: props.style?.backgroundColor ?? undefined,
   border: getBorder(props.style),
-  borderRadius: props.style?.borderRadius ?? undefined,
+  borderRadius: props.style?.borderRadius ? props.style.borderRadius + 'px' : undefined,
   padding: getPadding(props.style?.padding),
 }))
 

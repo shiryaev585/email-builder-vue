@@ -9,10 +9,11 @@
 </template>
 
 <script setup lang="ts">
-import type { ContainerProps } from '@flyhub-dev/block-container/index.vue';
-import { ContainerPropsSchema } from '@flyhub-dev/block-container/index.vue';
+import ContainerPropsSchema from '../../../../documents/blocks/Container/ContainerPropsSchema';
+import type { ContainerProps } from '../../../../documents/blocks/Container/ContainerPropsSchema';
 import MultiStylePropertyPanel from './helpers/style-inputs/MultiStylePropertyPanel.vue';
 import BaseSidebarPanel from './helpers/BaseSidebarPanel.vue';
+import { ref } from 'vue';
 
 type ContainerSidebarPanelProps = {
   data: ContainerProps;

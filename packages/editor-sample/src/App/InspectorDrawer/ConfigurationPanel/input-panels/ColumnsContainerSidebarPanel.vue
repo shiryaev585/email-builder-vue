@@ -42,8 +42,8 @@
 <script setup lang="ts">
 import BaseSidebarPanel from './helpers/BaseSidebarPanel.vue';
 import RadioGroupInput from './helpers/inputs/RadioGroupInput.vue';
-import type { ColumnsContainerProps } from '@flyhub-dev/block-columns-container/index.vue';
-import { ColumnsContainerPropsSchema } from '@flyhub-dev/block-columns-container/index.vue';
+import type { ColumnsContainerProps } from '../../../../documents/blocks/ColumnsContainer/ColumnsContainerPropsSchema'
+import ColumnsContainerPropsSchema from '../../../../documents/blocks/ColumnsContainer/ColumnsContainerPropsSchema'
 import { ref } from 'vue';
 import SliderInput from './helpers/inputs/SliderInput.vue';
 import MultiStylePropertyPanel from './helpers/style-inputs/MultiStylePropertyPanel.vue';
