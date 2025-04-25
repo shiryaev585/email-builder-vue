@@ -16,5 +16,8 @@
   "peerDependencies": {
     "vue": "^3",
     "zod": "^1 || ^2 || ^3"
+  },
+  "dependencies": {
+    "@vue/server-renderer": "^3.5.13"
   }
 }

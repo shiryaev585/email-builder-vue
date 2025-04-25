@@ -3,28 +3,30 @@
 </template>
 
 <script setup lang="ts">
-import type { TReaderBlockProps } from '@usewaypoint/email-builder';
+import type { TReaderBlockProps } from '..';
+import { computed, provide } from 'vue';
 
-import { Avatar, AvatarPropsSchema } from '@usewaypoint/block-avatar';
-import { Button, ButtonPropsSchema } from '@usewaypoint/block-button';
-import { Divider, DividerPropsSchema } from '@usewaypoint/block-divider';
-import { Heading, HeadingPropsSchema } from '@usewaypoint/block-heading';
-import { Html, HtmlPropsSchema } from '@usewaypoint/block-html';
-import { Image, ImagePropsSchema } from '@usewaypoint/block-image';
-import { Spacer, SpacerPropsSchema } from '@usewaypoint/block-spacer';
-import { Text, TextPropsSchema } from '@usewaypoint/block-text';
+import Avatar, { AvatarPropsSchema } from '@flyhub-dev/block-avatar';
+import Button, { ButtonPropsSchema } from '@flyhub-dev/block-button';
+import Divider, { DividerPropsSchema } from '@flyhub-dev/block-divider';
+import Heading, { HeadingPropsSchema } from '@flyhub-dev/block-heading';
+import Html, { HtmlPropsSchema } from '@flyhub-dev/block-html';
+import Image, { ImagePropsSchema } from '@flyhub-dev/block-image';
+import Spacer, { SpacerPropsSchema } from '@flyhub-dev/block-spacer';
+import Text, { TextPropsSchema } from '@flyhub-dev/block-text';
 
-import { ColumnsContainer as ColumnsContainerReader, ColumnsContainerPropsSchema } from '@usewaypoint/block-columns-container';
-import { Container as ContainerReader, ContainerPropsSchema } from '@usewaypoint/block-container';
+// import { ColumnsContainer as ColumnsContainerReader, ColumnsContainerPropsSchema } from '@flyhub-dev/block-columns-container';
+// import { Container as ContainerReader, ContainerPropsSchema } from '@flyhub-dev/block-container';
 import { EmailLayoutPropsSchema } from '../blocks/EmailLayout/EmailLayoutPropsSchema';
+import { useInspectorDrawer } from '../../editor-sample/src/documents/editor/editor.store';
 
-defineProps<TReaderBlockProps>();
+const props = defineProps<TReaderBlockProps>();
 
 // FIXME: use a context similar to react's useContext, embeding the ReaderBlock
 const inspectorDrawer = useInspectorDrawer();
 
 const instance = computed(() => {
-  const block = inspectorDrawer.document[id];
+  const block = inspectorDrawer.document[props.id];
 
   if (!block) return undefined;
 
@@ -33,7 +35,7 @@ const instance = computed(() => {
 })
 
 const data = computed(() => {
-  const block = inspectorDrawer.document[id];
+  const block = inspectorDrawer.document[props.id];
 
   if (!block) return undefined;
 
@@ -41,24 +43,22 @@ const data = computed(() => {
   return block.data;
 });
 
-// const get = (c: string) => defineAsyncComponent(() => import(c));
-
 const READER_DICTIONARY = {
-  ColumnsContainer: {
-    schema: ColumnsContainerPropsSchema,
-    // Component: get('./ColumnsContainerReader.vue'),
-    Component: ColumnsContainerReader,
-  },
-  Container: {
-    schema: ContainerPropsSchema,
-    // Component: get('./ContainerReader.vue'),
-    Component: ContainerReader,
-  },
-  EmailLayout: {
-    schema: EmailLayoutPropsSchema,
-    // Component: get('./EmailLayoutReader.vue'),
-    Component: EmailLayoutReader,
-  },
+  // ColumnsContainer: {
+  //   schema: ColumnsContainerPropsSchema,
+  //   // Component: get('./ColumnsContainerReader.vue'),
+  //   Component: ColumnsContainerReader,
+  // },
+  // Container: {
+  //   schema: ContainerPropsSchema,
+  //   // Component: get('./ContainerReader.vue'),
+  //   Component: ContainerReader,
+  // },
+  // EmailLayout: {
+  //   schema: EmailLayoutPropsSchema,
+  //   // Component: get('./EmailLayoutReader.vue'),
+  //   Component: EmailLayoutReader,
+  // },
   Avatar: {
     schema: AvatarPropsSchema,
     // Component: get('./Avatar.vue'),

@@ -12,7 +12,7 @@
       <!-- </div> -->
     </template>
     <template #html>
-      <!-- <HtmlPanel /> -->
+      <HtmlPanel />
     </template>
     <template #json>
       <!-- <JsonPanel /> -->
@@ -23,8 +23,7 @@
 <script setup lang="ts">
 import EditorBlock from '../../documents/editor/EditorBlock.vue'
 import { computed } from 'vue'
-// FIXME: implement
-// import HtmlPanel from './HtmlPanel.vue'
+import HtmlPanel from './HtmlPanel.vue'
 // FIXME: implement
 // import JsonPanel from './JsonPanel.vue'
 // FIXME: implement

@@ -31,4 +31,14 @@ export const EmailLayoutPropsSchema = z.object({
   childrenIds: z.array(z.string()).optional().nullable(),
 });
 
-export type EmailLayoutProps = z.infer<typeof EmailLayoutPropsSchema>;
+// export type EmailLayoutProps = z.infer<typeof EmailLayoutPropsSchema>;
+// FIXME: type
+export type EmailLayoutProps = {
+  backdropColor?: string | null;
+  borderColor?: string | null;
+  borderRadius?: number | null;
+  canvasColor?: string | null;
+  textColor?: string | null;
+  fontFamily?: string | null;
+  childrenIds: string[];
+};

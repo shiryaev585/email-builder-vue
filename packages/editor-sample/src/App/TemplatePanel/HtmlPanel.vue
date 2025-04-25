@@ -4,16 +4,18 @@
 
 <script setup lang="ts">
 import HighlightedCodePanel from './helper/HighlightedCodePanel.vue'
-import { renderToStaticMarkup } from '@usewaypoint/email-builder'
 import { useInspectorDrawer } from '../../documents/editor/editor.store'
-import { computed } from 'vue'
+import { ref, watch } from 'vue';
+import { renderToStaticMarkup } from '@flyhub-dev/email-builder'
 
 const inspectorDrawer = useInspectorDrawer()
 
-const code = computed(() => {
-  return renderToStaticMarkup(inspectorDrawer.document, {
-    rootBlockId: 'root'
-  })
-})
+const code = ref<string>('')
+
+watch(() => inspectorDrawer.document, async (document) => {
+  const html = await renderToStaticMarkup(document, { rootBlockId: 'root' })
+
+  code.value = html
+}, { immediate: true })
 </script>
 
