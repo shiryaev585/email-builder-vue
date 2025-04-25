@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.base.json", // Caminho relativo para o base
+  "compilerOptions": {
+    "outDir": "./dist",            // Onde salvar os arquivos compilados
+    "rootDir": "./src"             // Onde está o código fonte TS
+  },
+  "include": ["src/**/*"],         // O que compilar
+  "exclude": ["node_modules", "dist", "tests"] // O que ignorar
+}

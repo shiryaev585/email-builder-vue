@@ -1,20 +1,40 @@
 {
-  "name": "@flyhub-dev/block-columns-container",
+  "name": "@flyhub/email-block-columns-container",
   "version": "0.0.1",
   "scripts": {
+    "build": "npm run build:lib && npm run build:types",
+    "build:lib": "vite build",
+    "build:types": "vue-tsc --declaration --emitDeclarationOnly -p tsconfig.json",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "main": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src/index.vue"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/flyhub-dev/email-builder-vue.git"
   },
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/flyhub-dev/email-builder-vue/issues"
   },
+  "license": "MIT",
   "homepage": "https://github.com/flyhub-dev/email-builder-vue#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "vue": "^3",
     "zod": "^1 || ^2 || ^3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.3",
+    "vite": "^6.3.3",
+    "vitest": "^3.1.2",
+    "vue-tsc": "^2.2.10",
+    "@flyhub/email-builder-core": "^0.0.1"
   }
 }
