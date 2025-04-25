@@ -7,15 +7,15 @@
       </div>
     </template>
     <template #preview>
-      <!-- <div :style="mainBoxStyle"> -->
-      <!--   <Reader :document="document" root-block-id="root" /> -->
-      <!-- </div> -->
+      <div :style="mainBoxStyle">
+        <Reader :document="inspectorDrawer.document" root-block-id="root" />
+      </div>
     </template>
     <template #html>
       <HtmlPanel />
     </template>
     <template #json>
-      <!-- <JsonPanel /> -->
+      <JsonPanel />
     </template>
   </UTabs>
 </template>
@@ -24,10 +24,8 @@
 import EditorBlock from '../../documents/editor/EditorBlock.vue'
 import { computed } from 'vue'
 import HtmlPanel from './HtmlPanel.vue'
-// FIXME: implement
-// import JsonPanel from './JsonPanel.vue'
-// FIXME: implement
-// import Reader from '../../packages/email-builder/Reader/core.vue'
+import JsonPanel from './JsonPanel.vue'
+import Reader from '@flyhub-dev/email-builder/Reader/core.vue'
 import { useInspectorDrawer } from '../../documents/editor/editor.store'
 // FIXME: implement
 // import ShareButton from './ShareButton.vue'

@@ -1,0 +1,20 @@
+{
+  "name": "@flyhub-dev/block-columns-container",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flyhub-dev/email-builder-vue.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flyhub-dev/email-builder-vue/issues"
+  },
+  "homepage": "https://github.com/flyhub-dev/email-builder-vue#readme",
+  "peerDependencies": {
+    "vue": "^3",
+    "zod": "^1 || ^2 || ^3"
+  }
+}
