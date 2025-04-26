@@ -1,6 +1,6 @@
 {
   "name": "@flyhub/email-block-container",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "build": "npm run build:lib && npm run build:types",
     "build:lib": "vite build",
@@ -30,11 +30,13 @@
     "vue": "^3",
     "zod": "^1 || ^2 || ^3"
   },
+  "dependencies": {
+    "@flyhub/email-builder-core": "^0.0.1"
+  },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3",
     "vite": "^6.3.3",
     "vitest": "^3.1.2",
-    "vue-tsc": "^2.2.10",
-    "@flyhub/email-builder-core": "^0.0.1"
+    "vue-tsc": "^2.2.10"
   }
 }
