@@ -16,8 +16,8 @@
 <script setup lang="ts">
 import BaseSidebarPanel from './helpers/BaseSidebarPanel.vue';
 import SliderInput from './helpers/inputs/SliderInput.vue';
-import type { SpacerProps } from '@flyhub-dev/block-spacer/index.vue';
-import { SpacerPropsSchema, SpacerPropsDefaults } from '@flyhub-dev/block-spacer/index.vue';
+import type { SpacerProps } from '@flyhub/email-block-spacer';
+import { SpacerPropsSchema, SpacerPropsDefaults } from '@flyhub/email-block-spacer';
 import { ref } from 'vue';
 
 type SpacerSidebarPanelProps = {

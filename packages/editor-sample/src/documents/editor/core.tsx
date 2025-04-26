@@ -1,21 +1,21 @@
 import EditorBlockWrapper from '../blocks/helpers/block-wrappers/EditorBlockWrapper.vue';
-import { EmailLayoutPropsSchema } from '@flyhub-dev/email-builder/blocks/EmailLayout/EmailLayoutPropsSchema';
+import { EmailLayoutPropsSchema } from '@flyhub/email-builder/blocks/EmailLayout';
 import EmailLayoutEditor from '../blocks/EmailLayout/EmailLayoutEditor.vue';
-import Heading, { HeadingPropsSchema } from '@flyhub-dev/block-heading';
-import Text, { TextPropsSchema } from '@flyhub-dev/block-text';
-import Button, { ButtonPropsSchema } from '@flyhub-dev/block-button';
-import Image, { ImagePropsSchema } from '@flyhub-dev/block-image';
-import Avatar, { AvatarPropsSchema } from '@flyhub-dev/block-avatar';
-import Divider, { DividerPropsSchema } from '@flyhub-dev/block-divider';
-import Spacer, { SpacerPropsSchema } from '@flyhub-dev/block-spacer';
-import Html, { HtmlPropsSchema } from '@flyhub-dev/block-html';
+import Heading, { HeadingPropsSchema } from '@flyhub/email-block-heading';
+import Text, { TextPropsSchema } from '@flyhub/email-block-text';
+import Button, { ButtonPropsSchema } from '@flyhub/email-block-button';
+import Image, { ImagePropsSchema } from '@flyhub/email-block-image';
+import Avatar, { AvatarPropsSchema } from '@flyhub/email-block-avatar';
+import Divider, { DividerPropsSchema } from '@flyhub/email-block-divider';
+import Spacer, { SpacerPropsSchema } from '@flyhub/email-block-spacer';
+import Html, { HtmlPropsSchema } from '@flyhub/email-block-html';
 
 import ColumnsContainerEditor from '../blocks/ColumnsContainer/ColumnsContainerEditor.vue'
 import ColumnsContainerPropsSchema from '../blocks/ColumnsContainer/ColumnsContainerPropsSchema'
 import ContainerEditor from '../blocks/Container/ContainerEditor.vue'
 import ContainerPropsSchema from '../blocks/Container/ContainerPropsSchema'
 
-import { buildBlockConfigurationDictionary, buildBlockConfigurationSchema } from '@flyhub-dev/document-core/builders';
+import { buildBlockConfigurationDictionary, buildBlockConfigurationSchema } from '@flyhub/email-document-core/builders';
 import type { z } from 'zod';
 
 export const EDITOR_DICTIONARY = buildBlockConfigurationDictionary({

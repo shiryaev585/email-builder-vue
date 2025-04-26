@@ -7,9 +7,4 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [vue(), tailwindcss(), ui(), vueJsx()],
-  resolve: {
-    alias: {
-      '@flyhub-dev': fileURLToPath(new URL('../../packages', import.meta.url))
-    }
-  }
 })

@@ -50,9 +50,9 @@
 </template>
 
 <script setup lang="ts">
-import { getFontFamily } from '../../../../../core';
+import { getFontFamily } from '@flyhub/email-builder-core';
 import { currentBlockIdSymbol } from '../../editor/EditorBlock.vue';
-import type { TEditorBlock } from '../../editor/core';
+import type { TEditorBlock } from '@flyhub/email-builder-core';
 import EditorChildrenIds from '../helpers/EditorChildrenIds.vue';
 import { inject } from 'vue';
 

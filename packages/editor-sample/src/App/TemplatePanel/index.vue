@@ -25,7 +25,7 @@ import EditorBlock from '../../documents/editor/EditorBlock.vue'
 import { computed } from 'vue'
 import HtmlPanel from './HtmlPanel.vue'
 import JsonPanel from './JsonPanel.vue'
-import Reader from '@flyhub-dev/email-builder/Reader/core.vue'
+import { Reader } from '@flyhub/email-builder'
 import { useInspectorDrawer } from '../../documents/editor/editor.store'
 // FIXME: implement
 // import ShareButton from './ShareButton.vue'

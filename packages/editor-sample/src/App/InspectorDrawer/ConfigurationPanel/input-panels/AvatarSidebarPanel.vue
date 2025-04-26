@@ -43,8 +43,8 @@ import SliderInput from './helpers/inputs/SliderInput.vue';
 import BaseSidebarPanel from './helpers/BaseSidebarPanel.vue';
 import MultiStylePropertyPanel from './helpers/style-inputs/MultiStylePropertyPanel.vue';
 import RadioGroupInput from './helpers/inputs/RadioGroupInput.vue';
-import type { AvatarProps} from '@flyhub-dev/block-avatar/index.vue';
-import { AvatarPropsDefaults, AvatarPropsSchema } from '@flyhub-dev/block-avatar/index.vue';
+import type { AvatarProps } from '@flyhub/email-block-avatar';
+import { AvatarPropsDefaults, AvatarPropsSchema } from '@flyhub/email-block-avatar';
 import { ref, computed } from 'vue';
 
 type AvatarSidebarPanelProps = {

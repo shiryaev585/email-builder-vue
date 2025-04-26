@@ -6,7 +6,7 @@
 import HighlightedCodePanel from './helper/HighlightedCodePanel.vue'
 import { useInspectorDrawer } from '../../documents/editor/editor.store'
 import { ref, watch } from 'vue';
-import { renderToStaticMarkup } from '@flyhub-dev/email-builder'
+import { renderToStaticMarkup } from '@flyhub/email-builder'
 
 const inspectorDrawer = useInspectorDrawer()
 
