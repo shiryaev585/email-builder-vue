@@ -15,12 +15,16 @@ export default defineConfig({
 		},
 	},
 	build: {
-    minify: false,
+		minify: false,
 		lib: {
 			name: 'EmailBuilder',
-			entry: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
-      fileName: 'index',
+			entry: {
+				index: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
+				'blocks/EmailLayout/index': fileURLToPath(new URL('./src/blocks/EmailLayout/index.ts', import.meta.url)),
+				'blocks/ColumnsContainer/index': fileURLToPath(new URL('./src/blocks/ColumnsContainer/index.ts', import.meta.url)),
+			},
 			formats: ['es'],
+			fileName: (_format, entryName) => `${entryName}.mjs`
 		},
 		rollupOptions: {
 			external: ['vue'],
@@ -31,7 +35,7 @@ export default defineConfig({
  *  @license MIT
 **/
 `,
-        exports: 'auto',
+				exports: 'auto',
 				globals: {
 					vue: 'Vue',
 				},

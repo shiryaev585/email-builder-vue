@@ -14,8 +14,9 @@
           <td>
             <ReaderBlock
               v-for="childId in childrenIds"
-              :block="document[childId]"
               :key="childId"
+              :document="document"
+              :id="childId"
             />
           </td>
         </tr>

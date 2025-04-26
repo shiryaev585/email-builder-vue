@@ -43,5 +43,5 @@ export type EmailLayoutProps = {
   canvasColor?: string | null;
   textColor?: string | null;
   fontFamily?: string | null;
-  childrenIds: string[];
+  childrenIds?: string[] | null;
 };

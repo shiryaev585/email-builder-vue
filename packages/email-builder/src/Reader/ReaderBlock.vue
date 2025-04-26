@@ -1,5 +1,5 @@
 <template>
-  <component :is="instance" v-if="instance" v-bind="data" />
+  <component :is="instance" v-if="instance" v-bind="{ ...data, document }" />
 </template>
 
 <script setup lang="ts">
@@ -15,13 +15,14 @@ import Image, { ImagePropsSchema } from '@flyhub/email-block-image';
 import Spacer, { SpacerPropsSchema } from '@flyhub/email-block-spacer';
 import Text, { TextPropsSchema } from '@flyhub/email-block-text';
 
-import ColumnsContainerPropsSchema from '../blocks/ColumnsContainer/ColumnsContainerPropsSchema';
-import ColumnsContainerReader from '../blocks/ColumnsContainer/ColumnsContainerReader.vue';
+import EmailLayoutReader, { EmailLayoutPropsSchema } from '../blocks/EmailLayout';
+import ColumnsContainerReader , { ColumnsContainerPropsSchema } from '../blocks/ColumnsContainer';
+import ContainerReader, { ContainerPropsSchema } from '../blocks/Container';
 
 const props = defineProps<TReaderBlockProps>();
 
 const instance = computed(() => {
-  const block = props.block;
+  const block = props.document[props.id];
 
   if (!block) return undefined;
 
@@ -31,7 +32,7 @@ const instance = computed(() => {
 })
 
 const data = computed(() => {
-  const block = props.block;
+  const block = props.document[props.id];
 
   if (!block) return undefined;
 
@@ -39,21 +40,18 @@ const data = computed(() => {
 });
 
 const READER_DICTIONARY = {
-  // FIXME: implement
   ColumnsContainer: {
     schema: ColumnsContainerPropsSchema,
     Component: ColumnsContainerReader,
   },
-  // FIXME: implement
-  // Container: {
-  //   schema: ContainerPropsSchema,
-  //   Component: ContainerReader,
-  // },
-  // FIXME: implement
-  // EmailLayout: {
-  //   schema: EmailLayoutPropsSchema,
-  //   Component: EmailLayoutReader,
-  // },
+  Container: {
+    schema: ContainerPropsSchema,
+    Component: ContainerReader,
+  },
+  EmailLayout: {
+    schema: EmailLayoutPropsSchema,
+    Component: EmailLayoutReader,
+  },
   Avatar: {
     schema: AvatarPropsSchema,
     Component: Avatar,

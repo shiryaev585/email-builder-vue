@@ -1,5 +1,5 @@
 <template>
-  <ReaderBlock v-for="childId in childrenIds" :key="childId" :block="document[childId]" />
+  <ReaderBlock v-for="childId in childrenIds" :key="childId" :id="childId" :document="document" />
 </template>
 
 <script lang="ts">

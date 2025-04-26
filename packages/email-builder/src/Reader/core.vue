@@ -1,6 +1,6 @@
 <template>
   <!-- FIXME: check all types -->
-  <BuildBlockComponent :blocks="READER_DICTIONARY" v-bind="document[rootBlockId]"  />
+  <BuildBlockComponent :blocks="READER_DICTIONARY" v-bind="{ ...document[rootBlockId], document }" />
 </template>
 
 <script setup lang="ts">
@@ -13,12 +13,9 @@ import Image, { ImagePropsSchema } from '@flyhub/email-block-image';
 import Spacer, { SpacerPropsSchema } from '@flyhub/email-block-spacer';
 import Text, { TextPropsSchema } from '@flyhub/email-block-text';
 
-import { EmailLayoutPropsSchema } from '../blocks/EmailLayout/EmailLayoutPropsSchema';
-import EmailLayoutReader from '../blocks/EmailLayout/EmailLayoutReader.vue';
-// import ColumnsContainerPropsSchema from '../blocks/ColumnsContainer/ColumnsContainerPropsSchema';
-// import ColumnsContainerReader from '../blocks/ColumnsContainer/ColumnsContainerReader';
-// import { ContainerPropsSchema } from '../blocks/Container/ContainerPropsSchema';
-// import ContainerReader from '../blocks/Container/ContainerReader';
+import EmailLayoutReader, { EmailLayoutPropsSchema } from '../blocks/EmailLayout';
+import ColumnsContainerReader, { ColumnsContainerPropsSchema } from '../blocks/ColumnsContainer';
+import ContainerReader, { ContainerPropsSchema } from '../blocks/Container';
 
 import { BuildBlockComponent } from '@flyhub/email-document-core';
 import type { TReaderProps } from '..';
@@ -27,14 +24,14 @@ defineProps<TReaderProps>()
 
 // FIXME: use function buildblockconfigdictionary
 const READER_DICTIONARY = {
-  // ColumnsContainer: {
-  //   schema: ColumnsContainerPropsSchema,
-  //   Component: ColumnsContainerReader,
-  // },
-  // Container: {
-  //   schema: ContainerPropsSchema,
-  //   Component: ContainerReader,
-  // },
+  ColumnsContainer: {
+    schema: ColumnsContainerPropsSchema,
+    Component: ColumnsContainerReader,
+  },
+  Container: {
+    schema: ContainerPropsSchema,
+    Component: ContainerReader,
+  },
   EmailLayout: {
     schema: EmailLayoutPropsSchema,
     Component: EmailLayoutReader,

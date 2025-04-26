@@ -1,5 +1,7 @@
 export { default as renderToStaticMarkup } from './renderers/renderToStaticMarkup';
 
+import Reader from './Reader/core.vue';
+
 export type TReaderProps = {
   // FIXME: type
   // document: Record<string, z.infer<typeof ReaderBlockSchema>>;
@@ -9,6 +11,9 @@ export type TReaderProps = {
 
 export type TReaderBlockProps = {
   // FIXME: type
-  block: TReaderProps['document'][string] | undefined;
+  // document: Record<string, z.infer<typeof ReaderBlockSchema>>;
+  document: Record<string, any>;
+  id: string;
 };
 
+export { Reader };

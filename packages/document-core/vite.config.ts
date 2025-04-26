@@ -15,11 +15,14 @@ export default defineConfig({
 		},
 	},
 	build: {
-    minify: false,
+		minify: false,
 		lib: {
 			name: 'DocumentCore',
-			entry: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
-      fileName: 'index',
+			entry: {
+				index: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
+				'builders/index': fileURLToPath(new URL('./src/builders/index.ts', import.meta.url)),
+			},
+			fileName: (_format, entryName) => `${entryName}.mjs`,
 			formats: ['es'],
 		},
 		rollupOptions: {
@@ -31,7 +34,7 @@ export default defineConfig({
  *  @license MIT
 **/
 `,
-        exports: 'auto',
+				exports: 'auto',
 				globals: {
 					vue: 'Vue',
 				},

@@ -1,6 +1,6 @@
 {
   "name": "@flyhub/email-builder",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "scripts": {
     "build": "npm run build:lib && npm run build:types",
     "build:lib": "vite build",
@@ -14,6 +14,38 @@
     "dist",
     "src/index.vue"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./blocks/*": {
+      "import": "./dist/blocks/*",
+      "types": "./dist/blocks/*"
+    },
+    "./blocks/ColumnsContainer": {
+      "import": "./dist/blocks/ColumnsContainer/index.mjs",
+      "types": "./dist/blocks/ColumnsContainer/index.d.ts"
+    },
+    "./blocks/ColumnsContainer/*": {
+      "import": "./dist/blocks/ColumnsContainer/*.mjs",
+      "types": "./dist/blocks/ColumnsContainer/*.d.ts"
+    },
+    "./blocks/EmailLayout": {
+      "import": "./dist/blocks/EmailLayout/index.mjs",
+      "types": "./dist/blocks/EmailLayout/index.d.ts"
+    },
+    "./blocks/EmailLayout/*": {
+      "import": "./dist/blocks/EmailLayout/*.mjs",
+      "types": "./dist/blocks/EmailLayout/*.d.ts"
+    },
+    "./helpers/*": {
+      "types": "./dist/helpers/*.d.ts"
+    },
+    "./renderers/*": {
+      "types": "./dist/renderers/*.d.ts"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/flyhub-dev/email-builder-vue.git"
@@ -31,6 +63,7 @@
     "zod": "^1 || ^2 || ^3"
   },
   "dependencies": {
+    "@flyhub/email-block-container": "^0.0.1",
     "@flyhub/email-builder-core": "^0.0.1",
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/server-renderer": "^3.5.13",
