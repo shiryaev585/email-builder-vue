@@ -35,7 +35,7 @@
     "zod": "^1 || ^2 || ^3"
   },
   "dependencies": {
-    "@flyhub/email-builder": "^0.0.3",
+    "@flyhub/email-builder": "^0.0.4",
     "@nuxt/ui": "^3.0.2",
     "highlight.js": "^11.11.1",
     "prettier": "^3.5.3"
