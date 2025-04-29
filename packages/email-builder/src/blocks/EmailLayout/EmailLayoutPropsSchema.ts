@@ -1,29 +1,7 @@
+import { COLOR_SCHEMA, FONT_FAMILY_NAMES, FONT_FAMILY_SCHEMA } from '@flyhub/email-core';
 import { z } from 'zod';
 
-const COLOR_SCHEMA = z
-  .string()
-  .regex(/^#[0-9a-fA-F]{6}$/)
-  .nullable()
-  .optional();
-
-const FONT_FAMILY_SCHEMA = z
-  .enum([
-    'MODERN_SANS',
-    'BOOK_SANS',
-    'ORGANIC_SANS',
-    'GEOMETRIC_SANS',
-    'HEAVY_SANS',
-    'ROUNDED_SANS',
-    'MODERN_SERIF',
-    'BOOK_SERIF',
-    'MONOSPACE',
-  ])
-  .nullable()
-  .optional();
-
 export const EmailLayoutPropsSchema = z.object({
-  // FIXME: type
-  document: z.record(z.any()),
   backdropColor: COLOR_SCHEMA,
   borderColor: COLOR_SCHEMA,
   borderRadius: z.number().optional().nullable(),
@@ -34,14 +12,14 @@ export const EmailLayoutPropsSchema = z.object({
 });
 
 // export type EmailLayoutProps = z.infer<typeof EmailLayoutPropsSchema>;
-// FIXME: type
 export type EmailLayoutProps = {
-  document: Record<string, any>;
+// FIXME: type
+  document: Record<string, any>; // required to render the ContainerColumn's children
   backdropColor?: string | null;
   borderColor?: string | null;
   borderRadius?: number | null;
   canvasColor?: string | null;
   textColor?: string | null;
-  fontFamily?: string | null;
+  fontFamily?: typeof FONT_FAMILY_NAMES[number] | null;
   childrenIds?: string[] | null;
 };

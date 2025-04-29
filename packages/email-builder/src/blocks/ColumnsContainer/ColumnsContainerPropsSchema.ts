@@ -6,8 +6,6 @@ import type { ColumnsContainerProps as BaseColumnsContainerProps } from '@flyhub
 const BasePropsShape = BaseColumnsContainerPropsSchema.shape.props.unwrap().unwrap().shape;
 
 export const ColumnsContainerPropsSchema = z.object({
-  // FIXME: type
-  document: z.record(z.any()),
   style: BaseColumnsContainerPropsSchema.shape.style,
   props: z
     .object({
@@ -25,7 +23,7 @@ export const ColumnsContainerPropsSchema = z.object({
 // export type ColumnsContainerProps = z.infer<typeof ColumnsContainerPropsSchema>;
 export type ColumnsContainerProps = Omit<BaseColumnsContainerProps, 'props'> & {
   // FIXME: type
-  document: Record<string, any>;
+  document: Record<string, any>; // needed to render the children
   props?: BaseColumnsContainerProps['props'] & {
     columns: [
       { childrenIds: string[] },

@@ -4,8 +4,6 @@ import { ContainerPropsSchema as BaseContainerPropsSchema } from '@flyhub/email-
 import type { ContainerProps as BaseContainerProps } from '@flyhub/email-block-container';
 
 export const ContainerPropsSchema = z.object({
-  // FIXME: type
-  document: z.record(z.any()),
   style: BaseContainerPropsSchema.shape.style,
   props: z
     .object({
@@ -18,7 +16,7 @@ export const ContainerPropsSchema = z.object({
 // export type ContainerProps = z.infer<typeof ContainerPropsSchema>;
 export type ContainerProps = BaseContainerProps & {
   // FIXME: type
-  document: Record<string, any>;
+  document: Record<string, any>; // required to render the ContainerColumn's children
   props?: {
     childrenIds?: string[] | null;
   } | null;

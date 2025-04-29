@@ -35,7 +35,7 @@
     "@vitejs/plugin-vue": "^5.2.3",
     "@vitejs/plugin-vue-jsx": "^4.1.2",
     "pinia": "^3.0.2",
-    "@flyhub/email-builder": "^0.0.4",
+    "@flyhub/email-builder": "^0.0.5",
     "@nuxt/ui": "^3.0.2",
     "highlight.js": "^11.11.1",
     "prettier": "^3.5.3"
