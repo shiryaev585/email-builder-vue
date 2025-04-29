@@ -1,4 +1,5 @@
 import hljs from 'highlight.js';
+import 'highlight.js/styles/default.min.css';
 import jsonHighlighter from 'highlight.js/lib/languages/json';
 import xmlHighlighter from 'highlight.js/lib/languages/xml';
 import prettierPluginBabel from 'prettier/plugins/babel';

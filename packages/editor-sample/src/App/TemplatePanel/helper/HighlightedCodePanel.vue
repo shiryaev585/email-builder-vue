@@ -1,6 +1,6 @@
 <template>
   <!-- eslint-disable-next-line vue/no-v-html -->
-  <pre v-if="code !== null" class="m-0 p-4" @click="handleClick" v-html="code"/>
+  <pre v-if="code !== null" class="m-0 p-4 text-gray-500" @click="handleClick" v-html="code"/>
 </template>
 
 <script setup lang="ts">

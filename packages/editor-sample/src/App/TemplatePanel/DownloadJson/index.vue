@@ -1,9 +1,14 @@
 <template>
-  <a :href="href" download="emailTemplate.json">
-    <button>
-      baixar (implemnetar botão com tooltip, buscar por "emailTemplate.json" ocmo texto)
-    </button>
-  </a>
+  <UTooltip text="Download JSON file">
+    <UButton
+      :to="href"
+      variant="ghost"
+      color="neutral"
+      icon="material-symbols:download"
+      class="cursor-pointer"
+      download="emailTemplate.json"
+    />
+  </UTooltip>
 </template>
 
 <script setup lang="ts">

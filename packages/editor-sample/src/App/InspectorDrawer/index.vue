@@ -10,6 +10,7 @@
   >
     <template #body>
       <UTabs
+        v-model="activeTab"
         :items="tabs"
         :style="{
           '--drawer-width': `${INSPECTOR_DRAWER_WIDTH}px`,
@@ -18,7 +19,7 @@
         <template #styles>
           <StylesPanel />
         </template>
-        <template #inspect>
+        <template #block-configuration>
           <ConfigurationPanel />
         </template>
       </UTabs>
@@ -28,6 +29,7 @@
 
 <script setup lang="ts">
 import { useInspectorDrawer } from '../../documents/editor/editor.store';
+import { ref, watch } from 'vue';
 import StylesPanel from './StylesPanel.vue';
 import ConfigurationPanel from './ConfigurationPanel/index.vue';
 
@@ -40,9 +42,18 @@ const tabs = [
   },
   {
     label: 'Inspect',
-    slot: 'inspect' as const
+    slot: 'block-configuration' as const
   }
 ]
 
+/** Refs */
+
 const inspectorDrawer = useInspectorDrawer()
+const activeTab = ref<string>('0')
+
+/** Watch */
+
+watch(() => inspectorDrawer.selectedSidebarTab, (value) => {
+  activeTab.value = value === 'styles' ? '0' : '1'
+})
 </script>

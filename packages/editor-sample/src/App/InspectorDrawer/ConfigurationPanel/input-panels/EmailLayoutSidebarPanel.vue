@@ -51,12 +51,12 @@ import SliderInput from './helpers/inputs/SliderInput.vue';
 import { ref } from 'vue';
 
 type EmailLayoutSidebarFieldsProps = {
-  data: EmailLayoutProps;
+  data: Omit<EmailLayoutProps, 'document'>;
 }
 
 const props = defineProps<EmailLayoutSidebarFieldsProps>()
 const emit = defineEmits<{
-  (e: 'update:data', args: EmailLayoutProps): void
+  (e: 'update:data', args: EmailLayoutSidebarFieldsProps['data']): void
 }>()
 
 /** Refs */

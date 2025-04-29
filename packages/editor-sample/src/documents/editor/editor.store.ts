@@ -20,12 +20,11 @@ type TValue = {
 export const useInspectorDrawer = defineStore('inspectorDrawer', () => {
   const document = ref<TValue['document']>(getConfiguration(typeof window !== 'undefined' ? window.location.hash : ''))
   const selectedBlockId = ref<TValue['selectedBlockId']>(null)
-  // FIXME: remove if not used
   const selectedSidebarTab = ref<TValue['selectedSidebarTab']>('styles')
   const selectedMainTab = ref<TValue['selectedMainTab']>('editor')
   const selectedScreenSize = ref<TValue['selectedScreenSize']>('desktop')
   const inspectorDrawerOpen = ref<TValue['inspectorDrawerOpen']>(false)
-  const INSPECTOR_DRAWER_WIDTH = 320
+  const INSPECTOR_DRAWER_WIDTH = 335
 
   function setSelectedBlockId(blockId: TValue['selectedBlockId']) {
     const tab = blockId === null ? 'styles' : 'block-configuration'
@@ -47,6 +46,12 @@ export const useInspectorDrawer = defineStore('inspectorDrawer', () => {
     }
   }
 
+  function resetDocument(newDocument: TValue['document']) {
+    document.value = newDocument
+    selectedSidebarTab.value = 'styles'
+    selectedBlockId.value = null
+  }
+
   return {
     document,
     selectedBlockId,
@@ -58,5 +63,6 @@ export const useInspectorDrawer = defineStore('inspectorDrawer', () => {
 
     setSelectedBlockId,
     setDocument,
+    resetDocument,
   }
 })

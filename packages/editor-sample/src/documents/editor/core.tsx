@@ -1,6 +1,5 @@
-import EditorBlockWrapper from '../blocks/helpers/block-wrappers/EditorBlockWrapper.vue';
-import { EmailLayoutPropsSchema } from '@flyhub/email-builder/blocks/EmailLayout';
-import EmailLayoutEditor from '../blocks/EmailLayout/EmailLayoutEditor.vue';
+import { z } from 'zod';
+
 import Heading, { HeadingPropsSchema } from '@flyhub/email-block-heading';
 import Text, { TextPropsSchema } from '@flyhub/email-block-text';
 import Button, { ButtonPropsSchema } from '@flyhub/email-block-button';
@@ -10,13 +9,15 @@ import Divider, { DividerPropsSchema } from '@flyhub/email-block-divider';
 import Spacer, { SpacerPropsSchema } from '@flyhub/email-block-spacer';
 import Html, { HtmlPropsSchema } from '@flyhub/email-block-html';
 
+import { buildBlockConfigurationDictionary, buildBlockConfigurationSchema } from '@flyhub/email-document-core/builders';
+
 import ColumnsContainerEditor from '../blocks/ColumnsContainer/ColumnsContainerEditor.vue'
 import ColumnsContainerPropsSchema from '../blocks/ColumnsContainer/ColumnsContainerPropsSchema'
 import ContainerEditor from '../blocks/Container/ContainerEditor.vue'
 import ContainerPropsSchema from '../blocks/Container/ContainerPropsSchema'
-
-import { buildBlockConfigurationDictionary, buildBlockConfigurationSchema } from '@flyhub/email-document-core/builders';
-import type { z } from 'zod';
+import EmailLayoutEditor from '../blocks/EmailLayout/EmailLayoutEditor.vue';
+import EmailLayoutPropsSchema from '../blocks/EmailLayout/EmailLayoutPropsSchema';
+import EditorBlockWrapper from '../blocks/helpers/block-wrappers/EditorBlockWrapper.vue';
 
 export const EDITOR_DICTIONARY = buildBlockConfigurationDictionary({
   Avatar: {
@@ -114,6 +115,8 @@ export const EDITOR_DICTIONARY = buildBlockConfigurationDictionary({
   },
 });
 
-const _EditorBlockSchema = buildBlockConfigurationSchema(EDITOR_DICTIONARY)
-export type TEditorBlock = z.infer<typeof _EditorBlockSchema>
+export const EditorBlockSchema = buildBlockConfigurationSchema(EDITOR_DICTIONARY)
+export const EditorConfigurationSchema = z.record(EditorBlockSchema)
+
+export type TEditorBlock = z.infer<typeof EditorBlockSchema>
 export type TEditorConfiguration = Record<string, TEditorBlock>

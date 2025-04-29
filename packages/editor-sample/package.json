@@ -21,13 +21,9 @@
     "@tailwindcss/vite": "^4.1.4",
     "@tsconfig/node22": "^22.0.1",
     "@types/node": "^22.14.0",
-    "@vitejs/plugin-vue": "^5.2.3",
-    "@vitejs/plugin-vue-jsx": "^4.1.2",
     "@vue/tsconfig": "^0.7.0",
-    "pinia": "^3.0.2",
     "tailwindcss": "^4.1.4",
     "typescript": "^5.8.3",
-    "vite": "latest",
     "vue-router": "^4.5.1"
   },
   "peerDependencies": {
@@ -35,6 +31,10 @@
     "zod": "^1 || ^2 || ^3"
   },
   "dependencies": {
+    "vite": "latest",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "@vitejs/plugin-vue-jsx": "^4.1.2",
+    "pinia": "^3.0.2",
     "@flyhub/email-builder": "^0.0.4",
     "@nuxt/ui": "^3.0.2",
     "highlight.js": "^11.11.1",

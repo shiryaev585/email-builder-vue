@@ -8,6 +8,7 @@
 import { useInspectorDrawer } from '../../documents/editor/editor.store';
 import { computed } from 'vue';
 import EmailLayoutSidebarPanel from './ConfigurationPanel/input-panels/EmailLayoutSidebarPanel.vue';
+import type { EmailLayoutProps } from '@flyhub/email-builder/blocks/EmailLayout';
 
 const inspectorDrawer = useInspectorDrawer()
 
@@ -15,11 +16,10 @@ const block = computed(() => inspectorDrawer.document.root)
 
 /** Functions */
 
-// FIXME: type
-function handleUpdateData(data: any) {
+function handleUpdateData(data: Omit<EmailLayoutProps, 'document'>) {
   inspectorDrawer.setDocument({
     root: {
-      type: block.value.type,
+      type: 'EmailLayout',
       data,
     }
   })
