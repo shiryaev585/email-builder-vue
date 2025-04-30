@@ -2,7 +2,7 @@
   <UFormField :label="label">
     <RawSliderInput
       v-bind="rest"
-      :model-value="value"
+      :model-value="value ?? undefined /** converts null to undefined */"
       @update:model-value="handleChange"
     />
   </UFormField>
@@ -21,7 +21,7 @@ type Props = {
   min?: number,
   max?: number,
 
-  defaultValue: number,
+  defaultValue: number | null,
 }
 
 const props = defineProps<Props>()

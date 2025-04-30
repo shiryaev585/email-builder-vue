@@ -7,6 +7,7 @@
       @update:model-value="handleUpdateData({ ...data, props: { ...data.props, columnsCount: $event === '2' ? 2 : 3 } })"
     />
     <ColumnWidthsInput
+      :columns-count="data.props?.columnsCount ?? 3"
       :model-value="data.props?.fixedWidths"
       @update:model-value="handleUpdateData({ ...data, props: { ...data.props, fixedWidths: $event } })"
     />
@@ -42,11 +43,12 @@
 <script setup lang="ts">
 import BaseSidebarPanel from './helpers/BaseSidebarPanel.vue';
 import RadioGroupInput from './helpers/inputs/RadioGroupInput.vue';
+import ColumnWidthsInput from './helpers/inputs/ColumnWidthsInput.vue';
 import type { ColumnsContainerProps } from '../../../../documents/blocks/ColumnsContainer/ColumnsContainerPropsSchema'
 import ColumnsContainerPropsSchema from '../../../../documents/blocks/ColumnsContainer/ColumnsContainerPropsSchema'
-import { ref } from 'vue';
 import SliderInput from './helpers/inputs/SliderInput.vue';
 import MultiStylePropertyPanel from './helpers/style-inputs/MultiStylePropertyPanel.vue';
+import { ref } from 'vue';
 
 type ColumnsContainerSidebarPanelProps = {
   data: ColumnsContainerProps;
@@ -64,7 +66,7 @@ const errors = ref<Zod.ZodError | null>(null)
 
 /** Functions */
 
-function handleUpdateData(data: ColumnsContainerProps) {
+function handleUpdateData(data: unknown) {
   const res = ColumnsContainerPropsSchema.safeParse(data);
 
   if (res.success) {

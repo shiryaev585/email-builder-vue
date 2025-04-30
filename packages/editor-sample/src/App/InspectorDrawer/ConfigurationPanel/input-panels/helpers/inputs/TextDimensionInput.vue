@@ -1,11 +1,15 @@
 <template>
   <UFormField :label="label">
-    --TextDimensionInput--
     <UInput
       :model-value="modelValue"
       @update:model-value="handleChange($event as string)"
-    />
-    </UFormField>
+      placeholder="auto"
+    >
+      <template #trailing>
+        px
+      </template>
+    </UInput>
+  </UFormField>
 </template>
 
 <script setup lang="ts">

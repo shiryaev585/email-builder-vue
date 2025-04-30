@@ -3,7 +3,7 @@
   <p align="center">
     <a href="https://usewaypoint.github.io/email-builder-js/#sample/reservation-reminder">Demo / Playground (original)</a>&emsp;&middot;&emsp;
     <a href="https://www.emailbuilderjs.com">EmailBuilderJS.com (original)</a>&emsp;&middot;&emsp;
-    <a href="https://github.com/flyhub/email-builder-vue">GitHub</a>
+    <a href="https://github.com/flyhub-dev/email-builder-vue">GitHub</a>&emsp;&middot;&emsp;
   </p>
 </div>
 
@@ -13,7 +13,7 @@
 
 ## Introduction
 
-This project is a free and open-source port of EmailBuilder.js for Vue.js developers.
+This project is a free and open-source port of [EmailBuilder.js](https://github.com/usewaypoint/email-builder-js) for Vue.js developers.
 Faithfully adapted from the original EmailBuilder.js to bring the same experience to Vue.js projects.
 
 [Use the original playground](https://usewaypoint.github.io/email-builder-js/#sample/reservation-reminder) or learn more about how to [get started using EmailBuilder.js](#using-emailbuilder.js-(vue.js-port)).

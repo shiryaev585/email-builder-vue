@@ -20,10 +20,15 @@ const ColumnsContainerPropsSchema = z.object({
     .nullable(),
 });
 
-type TColumn = { childrenIds: string[] };
-export type ColumnsContainerProps = BaseColumnsContainerProps & {
-  props?: BaseColumnsContainerProps['props'] & {
-    columns: TColumn[];
-  } | null;
+export type ColumnsContainerProps = Omit<BaseColumnsContainerProps, 'props'> & {
+  props?: Extract<BaseColumnsContainerProps['props'], object> & {
+    columns: [
+      { childrenIds: string[] },
+      { childrenIds: string[] },
+      { childrenIds: string[] }
+    ];
+  }
+  | null;
 }
+
 export default ColumnsContainerPropsSchema;

@@ -22,7 +22,7 @@ type SliderInputProps = {
   min?: number,
   max?: number,
 
-  modelValue: number,
+  modelValue: number | undefined,
 }
 
 const props = defineProps<SliderInputProps>()
