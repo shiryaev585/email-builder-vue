@@ -24,17 +24,21 @@ const props = defineProps<Props>()
 const contentAlignment = computed(() => props.props?.contentAlignment ?? ColumnsContainerPropsDefaults.contentAlignment)
 const columnsCount = computed(() => props.props?.columnsCount ?? ColumnsContainerPropsDefaults.columnsCount)
 
-const style = computed(() => ({
-  boxSizing: 'content-box' as const,
-  verticalAlign: contentAlignment.value,
-  paddingLeft: getPaddingBefore(props.index, props.props) + 'px',
-  paddingRight: getPaddingAfter(props.index, props.props) + 'px',
-  width: props.props.fixedWidths?.[props.index] ?? undefined,
-})) 
+const style = computed(() => {
+  const width = props.props.fixedWidths?.[props.index]
+
+  return {
+    boxSizing: 'content-box' as const,
+    verticalAlign: contentAlignment.value,
+    paddingLeft: getPaddingBefore(props.index, props.props) + 'px',
+    paddingRight: getPaddingAfter(props.index, props.props) + 'px',
+    width: typeof width === 'number' ? width + 'px' : undefined,
+  }
+})
 
 /** Functions */
 
-function getPaddingBefore(index: number, { columnsGap, columnsCount }: Props['props']) {
+function getPaddingBefore(index: number, { columnsGap, columnsCount }: Props['props']): number {
   if (index === 0) {
     return 0;
   }
@@ -47,7 +51,7 @@ function getPaddingBefore(index: number, { columnsGap, columnsCount }: Props['pr
   return (2 * columnsGap) / 3;
 }
 
-function getPaddingAfter(index: number, { columnsGap, columnsCount }: Props['props']) {
+function getPaddingAfter(index: number, { columnsGap, columnsCount }: Props['props']): number {
   if (columnsCount === 2) {
     if (index === 0) {
       return columnsGap / 2;

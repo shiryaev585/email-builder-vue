@@ -1,6 +1,6 @@
 {
   "name": "@flyhub/email-block-columns-container",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "build": "npm run build:lib && npm run build:types",
     "build:lib": "vite build",

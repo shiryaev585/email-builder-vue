@@ -69,8 +69,8 @@ const imgAttrs = computed(() => ({
   width: width.value,
   height: height.value,
   style: {
-    width: width.value,
-    height: height.value,
+    width: typeof width.value === 'number' ? width.value + 'px' : undefined,
+    height: typeof height.value === 'number' ? height.value + 'px' : undefined,
     outline: 'none',
     border: 'none',
     textDecoration: 'none',
