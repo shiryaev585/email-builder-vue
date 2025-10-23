@@ -1,5 +1,5 @@
 <template>
-  <UTooltip text="Download JSON file">
+  <UTooltip text="Скачать JSON-файл">
     <UButton
       :to="href"
       variant="ghost"

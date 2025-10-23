@@ -1,6 +1,6 @@
 <template>
-  <UAlert v-if="!inspectorDrawer.selectedBlockId" type="warning" title="Click on a block to inspect." />
-  <UAlert v-else-if="!block" type="warning" :title="`Block with id ${inspectorDrawer.selectedBlockId} not found. Click on a block to reset.`" />
+  <UAlert v-if="!inspectorDrawer.selectedBlockId" type="warning" title="Нажмите на блок для просмотра" />
+  <UAlert v-else-if="!block" type="warning" :title="`Блок с id ${inspectorDrawer.selectedBlockId} не найден. Нажмите на блок для сброса.`" />
 
   <AvatarSidebarPanel v-else-if="block.type === 'Avatar'" :data="block.data" @update:data="handleUpdateData({ type: block.type, data: $event })" />
   <ButtonSidebarPanel v-else-if="block.type === 'Button'" :data="block.data" @update:data="handleUpdateData({ type: block.type, data: $event })" />

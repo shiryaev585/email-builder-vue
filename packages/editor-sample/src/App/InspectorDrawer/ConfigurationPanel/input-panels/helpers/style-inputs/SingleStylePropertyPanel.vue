@@ -1,22 +1,22 @@
 <template>
-  <NullableColorInput v-if="name === 'backgroundColor'" label="Background color" :default-value="defaultValue" @change="handleChange" />
-  <NullableColorInput v-else-if="name === 'borderColor'" label="Border color" :default-value="defaultValue" @change="handleChange" />
+  <NullableColorInput v-if="name === 'backgroundColor'" label="Цвет фона" :default-value="defaultValue" @change="handleChange" />
+  <NullableColorInput v-else-if="name === 'borderColor'" label="Цвет границы" :default-value="defaultValue" @change="handleChange" />
   <SliderInput
     v-else-if="name === 'borderRadius'"
     icon-label="material-symbols:rounded-corner"
-    label="Border radius"
+    label="Скругление границы"
     :default-value="defaultValue"
     :step="4"
     :min="0"
     :max="48"
     @change="handleChange"
   />
-  <NullableColorInput v-else-if="name === 'color'" label="Text color" :default-value="defaultValue" @change="handleChange" />
-  <NullableFontFamily v-else-if="name === 'fontFamily'" label="Font family" :default-value="defaultValue" @change="handleChange" />
-  <FontSizeInput v-else-if="name === 'fontSize'" label="Font size" :model-value="defaultValue" @change="handleChange" />
-  <FontWeightInput v-else-if="name === 'fontWeight'" label="Font weight" :model-value="defaultValue" @change="handleChange" />
-  <TextAlignInput v-else-if="name === 'textAlign'" label="Text align" :model-value="defaultValue" @change="handleChange" />
-  <PaddingInput v-else-if="name === 'padding'" label="Padding" :model-value="defaultValue" @change="handleChange" />
+  <NullableColorInput v-else-if="name === 'color'" label="Цвет текста" :default-value="defaultValue" @change="handleChange" />
+  <NullableFontFamily v-else-if="name === 'fontFamily'" label="Шрифт" :default-value="defaultValue" @change="handleChange" />
+  <FontSizeInput v-else-if="name === 'fontSize'" label="Размер шрифта" :model-value="defaultValue" @change="handleChange" />
+  <FontWeightInput v-else-if="name === 'fontWeight'" label="Жирность шрифта" :model-value="defaultValue" @change="handleChange" />
+  <TextAlignInput v-else-if="name === 'textAlign'" label="Выравнивание" :model-value="defaultValue" @change="handleChange" />
+  <PaddingInput v-else-if="name === 'padding'" label="Внутренний отступ" :model-value="defaultValue" @change="handleChange" />
 </template>
 
 <script setup lang="ts">

@@ -6,7 +6,7 @@
         <ImportJson />
 
         <UButtonGroup>
-          <UTooltip text="Desktop view">
+          <UTooltip text="Десктопный вид">
             <UButton
               :variant="inspectorDrawer.selectedScreenSize === 'desktop' ? 'solid' : 'outline'"
               color="neutral"
@@ -15,7 +15,7 @@
               class="cursor-pointer w-10 justify-center"
             />
           </UTooltip>
-          <UTooltip text="Mobile view">
+          <UTooltip text="Мобильный вид">
             <UButton
               :variant="inspectorDrawer.selectedScreenSize === 'mobile' ? 'solid' : 'outline'"
               color="neutral"

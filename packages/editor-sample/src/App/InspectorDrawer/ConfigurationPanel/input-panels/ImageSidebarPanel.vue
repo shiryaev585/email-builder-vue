@@ -1,6 +1,6 @@
 <template>
-  <BaseSidebarPanel title="Image block">
-    <UFormField label="Source URL">
+  <BaseSidebarPanel title="Блок изображения">
+    <UFormField label="URL">
       <UInput
         :model-value="data.props?.url ?? ''"
         @update:model-value="(e) => {
@@ -12,7 +12,7 @@
       />
     </UFormField>
 
-    <UFormField label="Alt text">
+    <UFormField label="Alt текст">
       <UInput
         :model-value="data.props?.alt ?? ''"
         @update:model-value="handleUpdateData({ ...data, props: { ...data.props, alt: $event as string } })"
@@ -20,7 +20,7 @@
       />
     </UFormField>
 
-    <UFormField label="Click through URL">
+    <UFormField label="Перейдите по URL-адресу">
       <UInput
         :model-value="data.props?.linkHref ?? ''"
         @update:model-value="(e) => {
@@ -34,19 +34,19 @@
 
     <div class="flex gap-2">
       <TextDimensionInput
-        label="Width"
+        label="Ширина"
         :model-value="data.props?.width"
         @change="handleUpdateData({ ...data, props: { ...data.props, width: $event } })"
       />
       <TextDimensionInput
-        label="Height"
+        label="Высота"
         :model-value="data.props?.height"
         @change="handleUpdateData({ ...data, props: { ...data.props, height: $event } })"
       />
     </div>
 
     <RadioGroupInput
-      label="Alignment"
+      label="Выравнивание"
       :model-value="data.props?.contentAlignment ?? 'middle'"
       :items="[
         { icon: 'material-symbols:vertical-align-top', value: 'top' },
@@ -72,20 +72,21 @@ import TextDimensionInput from './helpers/inputs/TextDimensionInput.vue';
 import type { ImageProps } from '@flyhub/email-block-image';
 import { ImagePropsSchema } from '@flyhub/email-block-image';
 import { ref } from 'vue';
+import Zod from 'zod';
 
 type ImageSidebarPanelProps = {
   data: ImageProps
-}
+};
 
-defineProps<ImageSidebarPanelProps>()
+defineProps<ImageSidebarPanelProps>();
 
 const emit = defineEmits<{
-  (e: 'update:data', args: ImageProps): void
-}>()
+  (e: 'update:data', args: ImageProps): void;
+}>();
 
 /** Refs */
 
-const errors = ref<Zod.ZodError | null>(null)
+const errors = ref<Zod.ZodError | null>(null);
 
 /** Functions */
 
@@ -95,8 +96,9 @@ function handleUpdateData(data: unknown) {
   if (res.success) {
     emit('update:data', res.data);
     errors.value = null;
-  } else {
+  }
+  else {
     errors.value = res.error;
   }
-}
+};
 </script>

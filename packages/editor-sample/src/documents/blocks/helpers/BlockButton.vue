@@ -4,7 +4,7 @@
       <!-- FIXME: style -->
       <UIcon :name="icon" style="font-size: 1.5rem" />
     </UButton>
-    <span class="text-white">{{ label }}</span>
+    <span class="text-black">{{ label }}</span>
   </UButton>
 </template>
 

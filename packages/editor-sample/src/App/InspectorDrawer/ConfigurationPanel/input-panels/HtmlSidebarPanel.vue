@@ -1,6 +1,6 @@
 <template>
-  <BaseSidebarPanel title="Html block">
-    <UFormField label="Content">
+  <BaseSidebarPanel title="Блок HTML">
+    <UFormField label="Контент">
       <UTextarea
         :rows="5"
         :model-value="data.props?.contents ?? ''"
@@ -22,20 +22,21 @@ import MultiStylePropertyPanel from './helpers/style-inputs/MultiStylePropertyPa
 import type { HtmlProps} from '@flyhub/email-block-html';
 import { HtmlPropsSchema } from '@flyhub/email-block-html';
 import { ref } from 'vue';
+import Zod from 'zod';
 
 type HtmlSidebarPanelProps = {
   data: HtmlProps
-}
+};
 
-defineProps<HtmlSidebarPanelProps>()
+defineProps<HtmlSidebarPanelProps>();
 
 const emit = defineEmits<{
-  (e: 'update:data', args: HtmlProps): void
-}>()
+  (e: 'update:data', args: HtmlProps): void;
+}>();
 
 /** Refs */
 
-const errors = ref<Zod.ZodError | null>(null)
+const errors = ref<Zod.ZodError | null>(null);
 
 /** Functions */
 
@@ -45,8 +46,9 @@ function handleUpdateData(data: unknown) {
   if (res.success) {
     emit('update:data', res.data);
     errors.value = null;
-  } else {
+  }
+  else {
     errors.value = res.error;
   }
-}
+};
 </script>

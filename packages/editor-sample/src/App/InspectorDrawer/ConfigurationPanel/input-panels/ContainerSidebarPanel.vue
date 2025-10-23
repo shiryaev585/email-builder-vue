@@ -1,5 +1,5 @@
 <template>
-  <BaseSidebarPanel title="Container block">
+  <BaseSidebarPanel title="Блок контейнера">
     <MultiStylePropertyPanel
       :names="['backgroundColor', 'borderColor', 'borderRadius', 'padding']"
       :model-value="data.style"
@@ -14,20 +14,21 @@ import type { ContainerProps } from '../../../../documents/blocks/Container/Cont
 import MultiStylePropertyPanel from './helpers/style-inputs/MultiStylePropertyPanel.vue';
 import BaseSidebarPanel from './helpers/BaseSidebarPanel.vue';
 import { ref } from 'vue';
+import Zod from 'zod';
 
 type ContainerSidebarPanelProps = {
   data: ContainerProps;
-}
+};
 
 defineProps<ContainerSidebarPanelProps>()
 
 const emit = defineEmits<{
-  (e: 'update:data', args: ContainerProps): void
-}>()
+  (e: 'update:data', args: ContainerProps): void;
+}>();
 
 /** Refs */
 
-const errors = ref<Zod.ZodError | null>(null)
+const errors = ref<Zod.ZodError | null>(null);
 
 /** Functions */
 
@@ -37,8 +38,9 @@ function handleUpdateData(data: ContainerProps) {
   if (res.success) {
     emit('update:data', res.data);
     errors.value = null;
-  } else {
+  }
+  else {
     errors.value = res.error;
   }
-}
+};
 </script>

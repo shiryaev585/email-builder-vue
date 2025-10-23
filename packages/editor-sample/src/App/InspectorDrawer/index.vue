@@ -37,11 +37,11 @@ const INSPECTOR_DRAWER_WIDTH = 300
 
 const tabs = [
   {
-    label: 'Styles',
+    label: 'Стили',
     slot: 'styles' as const
   },
   {
-    label: 'Inspect',
+    label: 'Просмотр',
     slot: 'block-configuration' as const
   }
 ]

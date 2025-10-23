@@ -1,6 +1,6 @@
 <template>
-  <BaseSidebarPanel title="Text block">
-    <UFormField label="Text">
+  <BaseSidebarPanel title="Блок текст">
+    <UFormField label="Текст">
       <UTextarea
         :rows="5"
         :model-value="data.props?.text ?? ''"
@@ -30,6 +30,7 @@ import BooleanInput from './helpers/inputs/BooleanInput.vue';
 import type { TextProps } from '@flyhub/email-block-text';
 import { TextPropsSchema } from '@flyhub/email-block-text';
 import { ref } from 'vue';
+import Zod from 'zod';
 
 type TextSidebarPanelProps = {
   data: TextProps

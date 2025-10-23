@@ -1,6 +1,6 @@
 <template>
-  <BaseSidebarPanel title="Heading block">
-    <UFormField label="Content">
+  <BaseSidebarPanel title="Блок заголовка">
+    <UFormField label="Контент">
       <UTextarea
         :rows="3"
         :model-value="data.props?.text ?? HeadingPropsDefaults.text"
@@ -9,7 +9,7 @@
       />
     </UFormField>
     <RadioGroupInput
-      label="Level"
+      label="Уровень заголовка"
       :model-value="data.props?.level ?? HeadingPropsDefaults.level"
       :items="[{ label: 'H1', value: 'h1' }, { label: 'H2', value: 'h2' }, { label: 'H3', value: 'h3' }]"
       @update:model-value="handleUpdateData({ ...data, props: { ...data.props, level: $event } })"
@@ -29,6 +29,7 @@ import RadioGroupInput from './helpers/inputs/RadioGroupInput.vue';
 import type { HeadingProps} from '@flyhub/email-block-heading';
 import { HeadingPropsSchema, HeadingPropsDefaults } from '@flyhub/email-block-heading';
 import { ref } from 'vue';
+import Zod from 'zod';
 
 type HeadingSidebarPanelProps = {
   data: HeadingProps

@@ -1,7 +1,7 @@
 <template>
-  <BaseSidebarPanel title="Spacer block">
+  <BaseSidebarPanel title="Блок разделителя">
     <SliderInput
-      label="Height"
+      label="Высота"
       icon-label="material-symbols:height"
       units="px"
       :step="4"
@@ -19,20 +19,21 @@ import SliderInput from './helpers/inputs/SliderInput.vue';
 import type { SpacerProps } from '@flyhub/email-block-spacer';
 import { SpacerPropsSchema, SpacerPropsDefaults } from '@flyhub/email-block-spacer';
 import { ref } from 'vue';
+import Zod from 'zod';
 
 type SpacerSidebarPanelProps = {
   data: SpacerProps
-}
+};
 
-defineProps<SpacerSidebarPanelProps>()
+defineProps<SpacerSidebarPanelProps>();
 
 const emit = defineEmits<{
-  (e: 'update:data', args: SpacerProps): void
-}>()
+  (e: 'update:data', args: SpacerProps): void;
+}>();
 
 /** Refs */
 
-const errors = ref<Zod.ZodError | null>(null)
+const errors = ref<Zod.ZodError | null>(null);
 
 /** Functions */
 
@@ -42,8 +43,9 @@ function handleUpdateData(data: unknown) {
   if (res.success) {
     emit('update:data', res.data);
     errors.value = null;
-  } else {
+  }
+  else {
     errors.value = res.error;
   }
-}
+};
 </script>

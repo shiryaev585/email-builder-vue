@@ -1,6 +1,6 @@
 <template>
-  <UAlert v-if="!block" type="warning" title="Block not found" />
-  <UAlert v-else-if="block.type !== 'EmailLayout'" type="warning" title='Expected "root" element to be of type "EmailLayout"' />
+  <UAlert v-if="!block" type="warning" title="Блок не найден" />
+  <UAlert v-else-if="block.type !== 'EmailLayout'" type="warning" title='Ожидается "корневой" элемент типа "EmailLayout"' />
   <EmailLayoutSidebarPanel v-else :data="block.data" @update:data="handleUpdateData" />
 </template>
 

@@ -1,12 +1,12 @@
 <template>
-  <BaseSidebarPanel title="Divider block">
+  <BaseSidebarPanel title="Блок перегородки">
     <ColorInput
-      label="Color"
+      label="Цвет"
       :default-value="lineColor"
       @change="handleUpdateData({ ...data, props: { ...data.props, lineColor: $event } })"
     />
     <SliderInput
-      label="Height"
+      label="Высота"
       icon-label="material-symbols:height"
       units="px"
       :step="1"
@@ -31,6 +31,7 @@ import SliderInput from './helpers/inputs/SliderInput.vue';
 import BaseSidebarPanel from './helpers/BaseSidebarPanel.vue';
 import MultiStylePropertyPanel from './helpers/style-inputs/MultiStylePropertyPanel.vue';
 import { computed, ref } from 'vue';
+import Zod from 'zod';
 
 type DividerSidebarPanelProps = {
   data: DividerProps

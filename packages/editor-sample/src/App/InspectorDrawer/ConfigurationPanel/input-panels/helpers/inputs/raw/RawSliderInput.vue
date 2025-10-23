@@ -3,6 +3,7 @@
     <UIcon :name="iconLabel" class="text-3xl" />
     <USlider
       v-bind="rest"
+      class="cursor-pointer"
       @update:model-value="emit('update:model-value', $event as number)"
     />
     <div>

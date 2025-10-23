@@ -1,23 +1,23 @@
 <template>
-  <BaseSidebarPanel title="Global">
+  <BaseSidebarPanel title="Общие стили">
     <ColorInput
-      label="Backdrop color"
+      label="Цвет фона"
       :default-value="props.data.backdropColor ?? '#F5F5F5'"
       @change="handleUpdateData({ ...props.data, backdropColor: $event })"
       />
     <ColorInput
-      label="Canvas color"
+      label="Цвет canvas'a"
       :default-value="props.data.canvasColor ?? '#FFFFFF'"
       @change="handleUpdateData({ ...props.data, canvasColor: $event })"
       />
     <NullableColorInput
-      label="Canvas border color"
+      label="Цвет границы canvas'a"
       :default-value="props.data.borderColor ?? null"
       @change="handleUpdateData({ ...props.data, borderColor: $event })"
       />
     <UFormField>
       <SliderInput
-        label="Canvas border radius"
+        label="Скругление границы canvas'a"
         icon-label="material-symbols:rounded-corner"
         units="px"
         :default-value="props.data.borderRadius ?? 0"
@@ -28,12 +28,12 @@
       />
     </UFormField>
     <NullableFontFamily
-      label="Font family"
+      label="Шрифт"
       default-value="MODERN_SANS"
       @change="handleUpdateData({ ...props.data, fontFamily: $event })"
     />
     <ColorInput
-      label="Text color"
+      label="Цвет текста"
       :default-value="props.data.textColor ?? '#262626'"
       @change="handleUpdateData({ ...props.data, textColor: $event })"
     />
@@ -49,19 +49,20 @@ import ColorInput from './helpers/inputs/ColorInput/ColorInput.vue';
 import NullableColorInput from './helpers/inputs/ColorInput/NullableColorInput.vue';
 import SliderInput from './helpers/inputs/SliderInput.vue';
 import { ref } from 'vue';
+import Zod from 'zod';
 
 type EmailLayoutSidebarFieldsProps = {
   data: Omit<EmailLayoutProps, 'document'>;
-}
+};
 
 const props = defineProps<EmailLayoutSidebarFieldsProps>()
 const emit = defineEmits<{
-  (e: 'update:data', args: EmailLayoutSidebarFieldsProps['data']): void
-}>()
+  (e: 'update:data', args: EmailLayoutSidebarFieldsProps['data']): void;
+}>();
 
 /** Refs */
 
-const errors = ref<Zod.ZodError | null>(null)
+const errors = ref<Zod.ZodError | null>(null);
 
 /** Functions */
 
@@ -71,10 +72,9 @@ function handleUpdateData(data: unknown) {
   if (res.success) {
     emit('update:data', res.data);
     errors.value = null;
-  } else {
+  }
+  else {
     errors.value = res.error;
   }
-}
-
-
+};
 </script>

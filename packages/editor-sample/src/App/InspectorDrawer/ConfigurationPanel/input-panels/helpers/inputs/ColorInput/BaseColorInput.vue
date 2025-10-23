@@ -8,7 +8,7 @@
         }"
       >
         <UPopover>
-          <UButton label="Choose color" color="neutral" variant="outline">
+          <UButton label="Выберите цвет" color="neutral" variant="outline" class="cursor-pointer">
             <template #leading>
               <UIcon v-if="value === null" name="material-symbols:palette" class="text-lg" />
               <span v-else :style="{ backgroundColor: value ?? undefined }" class="size-3 rounded-full" />

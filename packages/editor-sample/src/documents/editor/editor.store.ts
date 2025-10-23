@@ -1,4 +1,3 @@
-import getConfiguration from "../../getConfiguration";
 import type { TEditorConfiguration } from "./core";
 import { defineStore } from "pinia";
 import { ref } from "vue";
@@ -16,9 +15,19 @@ type TValue = {
   INSPECTOR_DRAWER_WIDTH: number;
 };
 
-
 export const useInspectorDrawer = defineStore('inspectorDrawer', () => {
-  const document = ref<TValue['document']>(getConfiguration(typeof window !== 'undefined' ? window.location.hash : ''))
+  const document = ref<TValue['document']>({
+    root: {
+      type: 'EmailLayout',
+      data: {
+        backdropColor: '#F5F5F5',
+        canvasColor: '#FFFFFF',
+        textColor: '#262626',
+        fontFamily: 'MODERN_SANS',
+        childrenIds: [],
+      },
+    },
+  })
   const selectedBlockId = ref<TValue['selectedBlockId']>(null)
   const selectedSidebarTab = ref<TValue['selectedSidebarTab']>('styles')
   const selectedMainTab = ref<TValue['selectedMainTab']>('editor')
