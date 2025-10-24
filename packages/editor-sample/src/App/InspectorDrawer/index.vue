@@ -1,5 +1,7 @@
 <template>
   <UDrawer
+    title="Панель редактирования"
+    description="Начните редактировать"
     :open="inspectorDrawer.inspectorDrawerOpen"
     direction="right"
     :overlay="false" 

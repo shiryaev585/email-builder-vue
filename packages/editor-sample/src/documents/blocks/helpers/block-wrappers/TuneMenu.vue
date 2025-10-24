@@ -1,9 +1,27 @@
 <template>
   <div :style="sx" @click.stop>
     <div style="display: flex; gap: 8px; flex-direction: column;">
-      <UButton class="tune-menu-button" icon="material-symbols:arrow-upward" size="xl" @click="handleMoveClick('up')" />
-      <UButton class="tune-menu-button" icon="material-symbols:arrow-downward" size="xl" @click="handleMoveClick('down')" />
-      <UButton class="tune-menu-button" icon="material-symbols:delete-outline" size="xl" @click="handleDeleteClick" />
+      <UButton
+        class="tune-menu-button"
+        icon="material-symbols:arrow-upward"
+        variant="subtle"
+        size="xl"
+        @click="handleMoveClick('up')"
+      />
+      <UButton
+        class="tune-menu-button"
+        icon="material-symbols:arrow-downward"
+        variant="subtle"
+        size="xl"
+        @click="handleMoveClick('down')"
+      />
+      <UButton
+        class="tune-menu-button"
+        icon="material-symbols:delete-outline"
+        variant="subtle"
+        size="xl"
+        @click="handleDeleteClick"
+      />
     </div>
   </div>
 </template>

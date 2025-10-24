@@ -27,39 +27,39 @@ export const useInspectorDrawer = defineStore('inspectorDrawer', () => {
         childrenIds: [],
       },
     },
-  })
-  const selectedBlockId = ref<TValue['selectedBlockId']>(null)
-  const selectedSidebarTab = ref<TValue['selectedSidebarTab']>('styles')
-  const selectedMainTab = ref<TValue['selectedMainTab']>('editor')
-  const selectedScreenSize = ref<TValue['selectedScreenSize']>('desktop')
-  const inspectorDrawerOpen = ref<TValue['inspectorDrawerOpen']>(false)
-  const INSPECTOR_DRAWER_WIDTH = 335
+  });
+  const selectedBlockId = ref<TValue['selectedBlockId']>(null);
+  const selectedSidebarTab = ref<TValue['selectedSidebarTab']>('styles');
+  const selectedMainTab = ref<TValue['selectedMainTab']>('editor');
+  const selectedScreenSize = ref<TValue['selectedScreenSize']>('desktop');
+  const inspectorDrawerOpen = ref<TValue['inspectorDrawerOpen']>(true);
+  const INSPECTOR_DRAWER_WIDTH = 335;
 
   function setSelectedBlockId(blockId: TValue['selectedBlockId']) {
-    const tab = blockId === null ? 'styles' : 'block-configuration'
+    const tab = blockId === null ? 'styles' : 'block-configuration';
 
     if (blockId !== null) {
-      inspectorDrawerOpen.value = true
+      inspectorDrawerOpen.value = true;
     }
 
-    selectedBlockId.value = blockId
-    selectedSidebarTab.value = tab
-  }
+    selectedBlockId.value = blockId;
+    selectedSidebarTab.value = tab;
+  };
 
   function setDocument(newDocument: TValue['document']) {
-    const originalDocument = document.value
+    const originalDocument = document.value;
 
     document.value = {
       ...originalDocument,
       ...newDocument,
     }
-  }
+  };
 
   function resetDocument(newDocument: TValue['document']) {
-    document.value = newDocument
-    selectedSidebarTab.value = 'styles'
-    selectedBlockId.value = null
-  }
+    document.value = newDocument;
+    selectedSidebarTab.value = 'styles';
+    selectedBlockId.value = null;
+  };
 
   return {
     document,
@@ -73,5 +73,5 @@ export const useInspectorDrawer = defineStore('inspectorDrawer', () => {
     setSelectedBlockId,
     setDocument,
     resetDocument,
-  }
-})
+  };
+});

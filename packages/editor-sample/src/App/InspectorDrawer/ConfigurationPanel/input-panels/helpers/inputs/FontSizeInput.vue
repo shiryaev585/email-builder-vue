@@ -17,12 +17,12 @@ import RawSliderInput from './raw/RawSliderInput.vue';
 
 type Props = {
   label: string,
-  modelValue: number,
+  modelValue: number | null,
 }
 
 defineProps<Props>()
 
 defineEmits<{
-  (e: 'change', args: number): void
+  (e: 'change', args: number | null): void
 }>()
 </script>

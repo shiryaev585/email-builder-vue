@@ -59,20 +59,20 @@ import { inject } from 'vue';
 import { useInspectorDrawer } from '../../editor/editor.store';
 
 type Props = {
-    backdropColor?: string | null;
-    borderColor?: string | null;
-    borderRadius?: number | null;
-    canvasColor?: string | null;
-    textColor?: string | null;
-    fontFamily?: string | null;
-    childrenIds?: string[] | null;
+  backdropColor?: string | null;
+  borderColor?: string | null;
+  borderRadius?: number | null;
+  canvasColor?: string | null;
+  textColor?: string | null;
+  fontFamily?: string | null;
+  childrenIds?: string[] | null;
 }
 
 withDefaults(defineProps<Props>(), {
   childrenIds: () => [],
-})
+});
 
-const inspectorDrawer = useInspectorDrawer()
+const inspectorDrawer = useInspectorDrawer();
 
 /** Injections */
 
@@ -98,8 +98,8 @@ function handleChangeChildren(args: { block: TEditorBlock, blockId: string, chil
         childrenIds,
       },
     },
-  })
+  });
 
   inspectorDrawer.setSelectedBlockId(blockId);
-}
+};
 </script>
